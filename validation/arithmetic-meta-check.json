@@ -1,0 +1,35 @@
+{
+  "models": 3915,
+  "one_input_models": 3375,
+  "two_input_models": 540,
+  "finite_states_evaluated": 11160,
+  "admitted_states": 4106,
+  "violating_states": 1513,
+  "status_counts": {
+    "INCONSISTENT": 1752,
+    "INSUFFICIENT": 941,
+    "PROVED": 1222
+  },
+  "certificate_kind_counts": {
+    "finite_cover": 40,
+    "inconsistent": 1712,
+    "linear": 1182,
+    "quantized": 40
+  },
+  "proof_layer_counts": {
+    "finite_cover": 40,
+    "linear_or_inconsistency": 2894,
+    "no_certificate": 941,
+    "quantized": 40
+  },
+  "maximum_basis_systems": 43,
+  "checks": {
+    "direct_status_vs_producer": "PASS",
+    "favorable_certificate_vs_checker": "PASS",
+    "insufficient_has_no_certificate": "PASS",
+    "all_decisions_and_certificate_kinds_exercised": "PASS"
+  },
+  "cpu_s": 1.1155389049999997,
+  "wall_s": 1.1156014119999327,
+  "peak_rss_kib": 93228
+}

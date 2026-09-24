@@ -1,0 +1,14 @@
+family,cases,exact_proved,exact_insufficient,exact_inconsistent,linear_proved,quantized_proved
+accounting,20,12,8,0,4,12
+affine_quantum,1,1,0,0,0,1
+constant_assertion,2,1,1,0,1,1
+correlated,6,4,2,0,2,4
+inconsistent,4,0,0,4,0,0
+lattice_empty,3,0,0,3,0,0
+marginal_only,6,0,6,0,0,0
+one_cut_gap,3,3,0,0,0,0
+reversed_interval,1,0,0,1,0,0
+seeded_affine,24,16,8,0,14,15
+signature_alias,8,0,8,0,0,0
+state_ceiling,2,1,1,0,1,1
+strict_boundary,6,3,3,0,0,3

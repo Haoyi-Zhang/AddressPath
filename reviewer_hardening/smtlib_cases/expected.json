@@ -1,0 +1,7 @@
+{
+  "negative_control_unconstrained_bypass": "sat",
+  "riscv_iommu_context_parallelism": "unsat",
+  "riscv_two_stage_correlated_acceptance": "unsat",
+  "rocket_ptw_control_skeleton": "unsat",
+  "sv39_serial_permission_gate": "unsat"
+}

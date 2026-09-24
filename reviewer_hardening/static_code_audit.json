@@ -1,0 +1,457 @@
+{
+  "files": [
+    {
+      "bytes": 8285,
+      "imports": [
+        "__future__",
+        "argparse",
+        "checker",
+        "collections",
+        "fractions",
+        "itertools",
+        "json",
+        "pathlib",
+        "producer",
+        "resource",
+        "sys",
+        "time",
+        "typing"
+      ],
+      "path": "exhaustive_arithmetic_meta.py",
+      "sha256": "c3446bab6b20d3fc4067bddf69b3389f445caf2fdb2c81ee5c4a29606cc6f583"
+    },
+    {
+      "bytes": 4755,
+      "imports": [
+        "__future__",
+        "argparse",
+        "itertools",
+        "json",
+        "pathlib",
+        "resource",
+        "time"
+      ],
+      "path": "exhaustive_meta.py",
+      "sha256": "354ec0f1c04f69ca2cfdd6b33365e36b431126a093a1f628c868f366723b61df"
+    },
+    {
+      "bytes": 4377,
+      "imports": [
+        "argparse",
+        "fractions",
+        "json",
+        "pathlib",
+        "random"
+      ],
+      "path": "generate.py",
+      "sha256": "92558d8278c878fe69c74b7508aec2109153ffa0b144287a8c9f96548cef3cf4"
+    },
+    {
+      "bytes": 7746,
+      "imports": [
+        "__future__",
+        "argparse",
+        "fractions",
+        "json",
+        "pathlib"
+      ],
+      "path": "generate_tpeg.py",
+      "sha256": "dbecb4a10b6468fec85dc49bac61732e0d1a054d6c2151f1ef3bb4057c9e0e1c"
+    },
+    {
+      "bytes": 742,
+      "imports": [
+        "pathlib",
+        "subprocess",
+        "sys"
+      ],
+      "path": "reproduce.py",
+      "sha256": "bd9a557c8b5c05e9580207f0687fe448e2f73da25a51ced196dfda8f6de33b06"
+    },
+    {
+      "bytes": 16858,
+      "imports": [
+        "__future__",
+        "argparse",
+        "csv",
+        "json",
+        "os",
+        "pathlib",
+        "resource",
+        "subprocess",
+        "sys",
+        "time",
+        "typing"
+      ],
+      "path": "reproduce_core.py",
+      "sha256": "1a6227fcafaaeb9f05ef19eeb37529e0688d78ddb225da44c415da6553c78b2e"
+    },
+    {
+      "bytes": 1888,
+      "imports": [
+        "__future__",
+        "csv",
+        "itertools",
+        "json",
+        "pathlib"
+      ],
+      "path": "reviewer_hardening/compactness_benchmark.py",
+      "sha256": "e4d0c7f19d9eec958024fffe45575da6b5227da670c14f1dc829a92e31cb7fdf"
+    },
+    {
+      "bytes": 3050,
+      "imports": [
+        "__future__",
+        "json",
+        "pathlib",
+        "re",
+        "shutil",
+        "subprocess",
+        "sys"
+      ],
+      "path": "reviewer_hardening/export_smtlib.py",
+      "sha256": "5a3569943af498fc5b029d32c18119eac0bff81532dea0f156396e6187ecd093"
+    },
+    {
+      "bytes": 2718,
+      "imports": [
+        "__future__",
+        "csv",
+        "json",
+        "pathlib",
+        "platform",
+        "statistics",
+        "sys",
+        "time"
+      ],
+      "path": "reviewer_hardening/path_budget_scaling.py",
+      "sha256": "45ad81fe806370d191611fc6d82b212596ef1ae6c27416ada1b9d12ebf32934b"
+    },
+    {
+      "bytes": 1995,
+      "imports": [
+        "__future__",
+        "csv",
+        "json",
+        "pathlib"
+      ],
+      "path": "reviewer_hardening/path_enumeration_boundary.py",
+      "sha256": "6cfd6fcb6e056ee78865c2093e3f51d5942c5b541e9800457c948ee349eda9d9"
+    },
+    {
+      "bytes": 9603,
+      "imports": [
+        "__future__",
+        "argparse",
+        "ast",
+        "csv",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "subprocess",
+        "sys"
+      ],
+      "path": "reviewer_hardening/reviewer_gate.py",
+      "sha256": "a4736eb18d32889b080bc6c0841e49272650f3f2960767b19b9768754b601e2f"
+    },
+    {
+      "bytes": 1785,
+      "imports": [
+        "__future__",
+        "ast",
+        "hashlib",
+        "json",
+        "pathlib"
+      ],
+      "path": "reviewer_hardening/static_code_audit.py",
+      "sha256": "63864872048a1bd7d2d320a2c87c05ff9e9ffeb89798c6045a2b8cfc7fc5c0b8"
+    },
+    {
+      "bytes": 4352,
+      "imports": [
+        "__future__",
+        "copy",
+        "importlib.util",
+        "json",
+        "pathlib",
+        "tempfile",
+        "unittest"
+      ],
+      "path": "reviewer_hardening/test_architecture_cases.py",
+      "sha256": "740f7aea39493d87bb6088620d5852fa650d3b8dc80464830a9188ad6aac0aec"
+    },
+    {
+      "bytes": 12070,
+      "imports": [
+        "__future__",
+        "argparse",
+        "fractions",
+        "itertools",
+        "json",
+        "pathlib",
+        "re",
+        "sys",
+        "typing"
+      ],
+      "path": "reviewer_hardening/verify_architecture_cases.py",
+      "sha256": "828dfc2b8e5bc74382135b308f5fde7e85a5037bccb1005a3ae3f79e8118c810"
+    },
+    {
+      "bytes": 624,
+      "imports": [
+        "hashlib",
+        "json",
+        "pathlib",
+        "sys"
+      ],
+      "path": "reviewer_hardening/verify_benchmark_manifest.py",
+      "sha256": "62ee685002a37a49c0f35ef8bf2fb81981ed20b658c8afcb51a141f4de9c3ada"
+    },
+    {
+      "bytes": 922,
+      "imports": [
+        "hashlib",
+        "json",
+        "pathlib",
+        "re",
+        "sys"
+      ],
+      "path": "reviewer_hardening/verify_provenance.py",
+      "sha256": "c1027366c08f8b85f5a53efe0cea13335caab735f64a4b9758bc38d653e2c4b8"
+    },
+    {
+      "bytes": 1517,
+      "imports": [
+        "__future__",
+        "argparse",
+        "json",
+        "pathlib",
+        "subprocess",
+        "sys"
+      ],
+      "path": "run_all_checks.py",
+      "sha256": "cd96750bfc952e773a0f21e736a6a8b17b19ad710fe8d590c181e05800e2031e"
+    },
+    {
+      "bytes": 3532,
+      "imports": [
+        "argparse",
+        "checker",
+        "json",
+        "oracle",
+        "os",
+        "pathlib",
+        "producer",
+        "resource",
+        "sys",
+        "time"
+      ],
+      "path": "run_cases.py",
+      "sha256": "add538732039f0f6b4538352a1af6459dc2826c312f61fea944b2c71f81afb95"
+    },
+    {
+      "bytes": 3419,
+      "imports": [
+        "__future__",
+        "argparse",
+        "checker",
+        "io",
+        "json",
+        "math",
+        "os",
+        "pathlib",
+        "resource",
+        "sys",
+        "test_checker",
+        "test_tpeg_checker",
+        "time",
+        "tpeg_checker",
+        "unittest"
+      ],
+      "path": "run_tests.py",
+      "sha256": "4bae1ab86e3776783c472c4f03639827ae8a837ca4eb847ba0656c45c0493632"
+    },
+    {
+      "bytes": 4345,
+      "imports": [
+        "__future__",
+        "argparse",
+        "checker",
+        "json",
+        "os",
+        "pathlib",
+        "resource",
+        "sys",
+        "time",
+        "tpeg_checker",
+        "tpeg_oracle",
+        "tpeg_producer"
+      ],
+      "path": "run_tpeg_cases.py",
+      "sha256": "11b1b7a2d6df893748e017355d30079c249cc5f4c7a972cb9bdde2e0c080005f"
+    },
+    {
+      "bytes": 10261,
+      "imports": [
+        "__future__",
+        "argparse",
+        "fractions",
+        "itertools",
+        "json",
+        "math",
+        "pathlib",
+        "re",
+        "typing"
+      ],
+      "path": "src/checker.py",
+      "sha256": "65ba3862403108e4cbf51098a973b14a142244a0e808f0ad40e934ef507bb543"
+    },
+    {
+      "bytes": 1412,
+      "imports": [
+        "fractions",
+        "itertools"
+      ],
+      "path": "src/oracle.py",
+      "sha256": "3700196fe4647b7d6cec1ef98c79fdab49ad4baea1300b68b66dbf8d37562a20"
+    },
+    {
+      "bytes": 6308,
+      "imports": [
+        "fractions",
+        "itertools",
+        "math"
+      ],
+      "path": "src/producer.py",
+      "sha256": "2af42e991f7ab01cbdd7cc23d4887ffe1c98b0a00deeb28bc0069a1cc5b6b090"
+    },
+    {
+      "bytes": 12908,
+      "imports": [
+        "__future__",
+        "argparse",
+        "checker",
+        "fractions",
+        "itertools",
+        "pathlib",
+        "typing"
+      ],
+      "path": "src/tpeg_checker.py",
+      "sha256": "00242933a8d6955f1765f35d0c95874f68da938cbeceabe4fca5a1e65ffb104a"
+    },
+    {
+      "bytes": 2125,
+      "imports": [
+        "__future__",
+        "fractions",
+        "itertools"
+      ],
+      "path": "src/tpeg_oracle.py",
+      "sha256": "13968d41e8a7208733fb0e54626c02b2c814e3455c04f9301045d382edf18a5a"
+    },
+    {
+      "bytes": 5130,
+      "imports": [
+        "__future__",
+        "itertools",
+        "producer",
+        "tpeg_checker",
+        "typing"
+      ],
+      "path": "src/tpeg_producer.py",
+      "sha256": "3e9ac17f3652b0892437ca5fea353a4c09a5e690d0f9894630ac9587dca6cec1"
+    },
+    {
+      "bytes": 3721,
+      "imports": [
+        "argparse",
+        "collections",
+        "csv",
+        "fractions",
+        "json",
+        "pathlib"
+      ],
+      "path": "summarize.py",
+      "sha256": "432618ca09634a7d80cbb24ede48e0c0aceda99b3860e3036b44757a42c2abc8"
+    },
+    {
+      "bytes": 5966,
+      "imports": [
+        "__future__",
+        "argparse",
+        "collections",
+        "csv",
+        "json",
+        "pathlib"
+      ],
+      "path": "summarize_tpeg.py",
+      "sha256": "981510dc0a56052ea9b695e29f5727fe07ec973799723fda7af96341dc7c477e"
+    },
+    {
+      "bytes": 8177,
+      "imports": [
+        "checker",
+        "copy",
+        "fractions",
+        "json",
+        "pathlib",
+        "sys",
+        "tempfile",
+        "unittest"
+      ],
+      "path": "tests/test_checker.py",
+      "sha256": "0ee43aca486505975351cbad97c113e219bf25b1960499cf9b6f5a1ecc92d0fa"
+    },
+    {
+      "bytes": 6533,
+      "imports": [
+        "__future__",
+        "checker",
+        "copy",
+        "json",
+        "pathlib",
+        "sys",
+        "tpeg_checker",
+        "tpeg_oracle",
+        "unittest"
+      ],
+      "path": "tests/test_tpeg_checker.py",
+      "sha256": "4e3551861726acf474ce1e5d1d5462067a6328e99bdb92c953d8b9f6ac4bc57b"
+    },
+    {
+      "bytes": 4481,
+      "imports": [
+        "__future__",
+        "ast",
+        "csv",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "sys",
+        "zipfile"
+      ],
+      "path": "tools/final_code_audit.py",
+      "sha256": "94ab9448481fe156de48bd0e6347aa5c655018e82f91bf929fa4f668f7f14dba"
+    },
+    {
+      "bytes": 3925,
+      "imports": [
+        "csv",
+        "json",
+        "pathlib",
+        "re",
+        "sys"
+      ],
+      "path": "tools/verify_research_records.py",
+      "sha256": "5686688bd90920798ef307783ddf64fafff6f4b7f6b85b4a85968efef1cde683"
+    }
+  ],
+  "forbidden_constructs": [],
+  "python_files": 32,
+  "schema": "static-code-audit-v1",
+  "status": "PASS",
+  "total_bytes": 165530
+}

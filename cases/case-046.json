@@ -1,0 +1,50 @@
+{
+  "id": "case-046",
+  "family": "one_cut_gap",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    },
+    {
+      "input": 1
+    },
+    {
+      "constant": "0",
+      "terms": [
+        [
+          0,
+          "2"
+        ],
+        [
+          1,
+          "5"
+        ]
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "node": 2,
+      "lower": "6",
+      "upper": "6"
+    }
+  ],
+  "assumptions": [],
+  "assertion": {
+    "node": 1,
+    "upper": "0"
+  }
+}

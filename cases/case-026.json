@@ -1,0 +1,50 @@
+{
+  "id": "case-026",
+  "family": "signature_alias",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        3
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    },
+    {
+      "input": 1
+    },
+    {
+      "constant": "0",
+      "terms": [
+        [
+          0,
+          "1/3"
+        ],
+        [
+          1,
+          "1/3"
+        ]
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "node": 2,
+      "lower": "1",
+      "upper": "1"
+    }
+  ],
+  "assumptions": [],
+  "assertion": {
+    "node": 1,
+    "upper": "0"
+  }
+}

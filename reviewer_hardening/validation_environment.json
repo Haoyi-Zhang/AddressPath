@@ -1,0 +1,16 @@
+{
+  "capture_date": "2026-09-20",
+  "implementation": "CPython",
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "portability": "Core artifact uses Python standard library. TeX/PDF and optional SMT validation require separately installed tools; semantic result files exclude timing from exact comparisons.",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "schema": "validation-environment-v1",
+  "tools": {
+    "bibtex": null,
+    "pdflatex": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+    "pdftotext": "pdftotext version 25.06.0",
+    "qpdf": null,
+    "z3": null
+  }
+}

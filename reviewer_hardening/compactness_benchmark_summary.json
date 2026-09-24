@@ -1,0 +1,7 @@
+{
+  "closed_form": "allowed_states=3^n; maximal_signatures=2^n; path-budget witness rows=n",
+  "finite_validation_through_n": 8,
+  "rows": 16,
+  "schema": "compactness-benchmark-v1",
+  "status": "PASS"
+}

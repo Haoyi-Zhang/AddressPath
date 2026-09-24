@@ -1,0 +1,44 @@
+{
+  "cases": 86,
+  "exact": {
+    "PROVED": 41,
+    "INSUFFICIENT": 37,
+    "INCONSISTENT": 8
+  },
+  "linear": {
+    "PROVED": 22,
+    "INSUFFICIENT": 59,
+    "INCONSISTENT": 5
+  },
+  "quantized": {
+    "PROVED": 37,
+    "INSUFFICIENT": 44,
+    "INCONSISTENT": 5
+  },
+  "certificates": {
+    "linear": 22,
+    "quantized": 15,
+    "none": 37,
+    "inconsistent": 5,
+    "finite_cover": 7
+  },
+  "grid_states_per_enumerator": 9419,
+  "basis_systems": 9021,
+  "cpu_s": 0.559910417,
+  "wall_s": 0.5696845219999886,
+  "peak_rss_kib": 93996,
+  "certificate_bytes": {
+    "sum": 7479,
+    "min": 88,
+    "max": 281
+  },
+  "maxima": {
+    "inputs": 3,
+    "nodes": 6,
+    "observables": 3,
+    "inequalities": 12,
+    "max_compiled_bits": 130,
+    "enumerated_states": 4096
+  },
+  "finite_cover_state_visits": 67
+}

@@ -1,0 +1,59 @@
+{
+  "kind": "signature_cover",
+  "witness": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "signatures": [
+    {
+      "open_edges": [
+        "e00",
+        "e02"
+      ],
+      "reachable": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "open_edges": [
+        "e00",
+        "e03"
+      ],
+      "reachable": [
+        0,
+        1
+      ]
+    },
+    {
+      "open_edges": [
+        "e01",
+        "e02"
+      ],
+      "reachable": [
+        0,
+        2
+      ]
+    },
+    {
+      "open_edges": [
+        "e01",
+        "e03"
+      ],
+      "reachable": [
+        0
+      ]
+    }
+  ]
+}

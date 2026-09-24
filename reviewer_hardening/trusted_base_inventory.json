@@ -1,0 +1,168 @@
+{
+  "candidate_files": [
+    {
+      "imports": [
+        "__future__",
+        "argparse",
+        "collections",
+        "csv",
+        "json",
+        "pathlib"
+      ],
+      "logical_noncomment_lines": 111,
+      "path": "summarize_tpeg.py",
+      "sha256": "981510dc0a56052ea9b695e29f5727fe07ec973799723fda7af96341dc7c477e"
+    },
+    {
+      "imports": [
+        "__future__",
+        "argparse",
+        "checker",
+        "collections",
+        "fractions",
+        "itertools",
+        "json",
+        "pathlib",
+        "producer",
+        "resource",
+        "sys",
+        "time",
+        "typing"
+      ],
+      "logical_noncomment_lines": 190,
+      "path": "exhaustive_arithmetic_meta.py",
+      "sha256": "c3446bab6b20d3fc4067bddf69b3389f445caf2fdb2c81ee5c4a29606cc6f583"
+    },
+    {
+      "imports": [
+        "__future__",
+        "argparse",
+        "itertools",
+        "json",
+        "pathlib",
+        "resource",
+        "time"
+      ],
+      "logical_noncomment_lines": 98,
+      "path": "exhaustive_meta.py",
+      "sha256": "354ec0f1c04f69ca2cfdd6b33365e36b431126a093a1f628c868f366723b61df"
+    },
+    {
+      "imports": [
+        "argparse",
+        "collections",
+        "csv",
+        "fractions",
+        "json",
+        "pathlib"
+      ],
+      "logical_noncomment_lines": 49,
+      "path": "summarize.py",
+      "sha256": "432618ca09634a7d80cbb24ede48e0c0aceda99b3860e3036b44757a42c2abc8"
+    },
+    {
+      "imports": [
+        "__future__",
+        "argparse",
+        "checker",
+        "json",
+        "os",
+        "pathlib",
+        "resource",
+        "sys",
+        "time",
+        "tpeg_checker",
+        "tpeg_oracle",
+        "tpeg_producer"
+      ],
+      "logical_noncomment_lines": 99,
+      "path": "run_tpeg_cases.py",
+      "sha256": "11b1b7a2d6df893748e017355d30079c249cc5f4c7a972cb9bdde2e0c080005f"
+    },
+    {
+      "imports": [
+        "argparse",
+        "checker",
+        "json",
+        "oracle",
+        "os",
+        "pathlib",
+        "producer",
+        "resource",
+        "sys",
+        "time"
+      ],
+      "logical_noncomment_lines": 49,
+      "path": "run_cases.py",
+      "sha256": "add538732039f0f6b4538352a1af6459dc2826c312f61fea944b2c71f81afb95"
+    },
+    {
+      "imports": [
+        "csv",
+        "json",
+        "pathlib",
+        "re",
+        "sys"
+      ],
+      "logical_noncomment_lines": 57,
+      "path": "tools/verify_research_records.py",
+      "sha256": "5686688bd90920798ef307783ddf64fafff6f4b7f6b85b4a85968efef1cde683"
+    },
+    {
+      "imports": [
+        "__future__",
+        "argparse",
+        "checker",
+        "fractions",
+        "itertools",
+        "pathlib",
+        "typing"
+      ],
+      "logical_noncomment_lines": 255,
+      "path": "src/tpeg_checker.py",
+      "sha256": "00242933a8d6955f1765f35d0c95874f68da938cbeceabe4fca5a1e65ffb104a"
+    },
+    {
+      "imports": [
+        "__future__",
+        "itertools",
+        "producer",
+        "tpeg_checker",
+        "typing"
+      ],
+      "logical_noncomment_lines": 121,
+      "path": "src/tpeg_producer.py",
+      "sha256": "3e9ac17f3652b0892437ca5fea353a4c09a5e690d0f9894630ac9587dca6cec1"
+    },
+    {
+      "imports": [
+        "__future__",
+        "argparse",
+        "fractions",
+        "itertools",
+        "json",
+        "math",
+        "pathlib",
+        "re",
+        "typing"
+      ],
+      "logical_noncomment_lines": 221,
+      "path": "src/checker.py",
+      "sha256": "65ba3862403108e4cbf51098a973b14a142244a0e808f0ad40e934ef507bb543"
+    },
+    {
+      "imports": [
+        "fractions",
+        "itertools",
+        "math"
+      ],
+      "logical_noncomment_lines": 132,
+      "path": "src/producer.py",
+      "sha256": "2af42e991f7ab01cbdd7cc23d4887ffe1c98b0a00deeb28bc0069a1cc5b6b090"
+    }
+  ],
+  "candidate_logical_lines": 1382,
+  "interpretation": "Candidate soundness-critical implementation files selected by conservative filename/content heuristics; review TRUST-AND-CLAIM-BOUNDARIES.md for the semantic TCB.",
+  "schema": "trusted-base-inventory-v1",
+  "status": "PASS"
+}

@@ -1,0 +1,55 @@
+{
+  "id": "case-003",
+  "family": "accounting",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    },
+    {
+      "input": 1
+    },
+    {
+      "constant": "0",
+      "terms": [
+        [
+          0,
+          "1"
+        ],
+        [
+          1,
+          "1"
+        ]
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "node": 2,
+      "lower": "1",
+      "upper": "1"
+    },
+    {
+      "node": 0,
+      "lower": "1/4",
+      "upper": "7/4"
+    }
+  ],
+  "assumptions": [],
+  "assertion": {
+    "node": 1,
+    "upper": "0"
+  }
+}

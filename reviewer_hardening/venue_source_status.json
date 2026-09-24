@@ -1,0 +1,47 @@
+{
+  "retrieval_date": "2026-09-20",
+  "schema": "venue-source-status-v1",
+  "sources": [
+    {
+      "error": "URLError",
+      "http_status": null,
+      "id": "taco_author_guidelines",
+      "note": "Live retrieval failed; manual portal verification required",
+      "retrieved_at": "2026-09-20",
+      "url": "https://dl.acm.org/journal/taco/author-guidelines"
+    },
+    {
+      "error": "URLError",
+      "http_status": null,
+      "id": "acm_journal_submissions",
+      "note": "Live retrieval failed; manual portal verification required",
+      "retrieved_at": "2026-09-20",
+      "url": "https://authors.acm.org/journals/submissions"
+    },
+    {
+      "error": "URLError",
+      "http_status": null,
+      "id": "acm_latex_preparation",
+      "note": "Live retrieval failed; manual portal verification required",
+      "retrieved_at": "2026-09-20",
+      "url": "https://authors.acm.org/proceedings/production-information/preparing-your-article-with-latex"
+    },
+    {
+      "error": "URLError",
+      "http_status": null,
+      "id": "acm_authorship_policy",
+      "note": "Live retrieval failed; manual portal verification required",
+      "retrieved_at": "2026-09-20",
+      "url": "https://www.acm.org/publications/policies/new-acm-policy-on-authorship"
+    },
+    {
+      "error": "URLError",
+      "http_status": null,
+      "id": "acm_ai_faq",
+      "note": "Live retrieval failed; manual portal verification required",
+      "retrieved_at": "2026-09-20",
+      "url": "https://www.acm.org/publications/policies/frequently-asked-questions"
+    }
+  ],
+  "target": "ACM Transactions on Architecture and Code Optimization (TACO)"
+}

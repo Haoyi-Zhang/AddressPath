@@ -1,0 +1,12 @@
+{
+  "kind": "quantized",
+  "witness": [
+    0
+  ],
+  "multipliers": [
+    "0",
+    "0",
+    "0",
+    "2/3"
+  ]
+}

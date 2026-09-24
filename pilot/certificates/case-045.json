@@ -1,0 +1,19 @@
+{
+  "kind": "finite_cover",
+  "decision": "PROVED",
+  "witness": [
+    2,
+    0
+  ],
+  "cover": [
+    4,
+    4,
+    5,
+    4,
+    5,
+    5,
+    -1,
+    5,
+    5
+  ]
+}

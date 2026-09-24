@@ -1,0 +1,92 @@
+{
+  "id": "case-040",
+  "family": "marginal_only",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    },
+    {
+      "input": 1
+    },
+    {
+      "input": 2
+    },
+    {
+      "constant": "0",
+      "terms": [
+        [
+          0,
+          "1"
+        ],
+        [
+          1,
+          "1"
+        ],
+        [
+          2,
+          "1"
+        ]
+      ]
+    },
+    {
+      "constant": "0",
+      "terms": [
+        [
+          0,
+          "1"
+        ],
+        [
+          2,
+          "1"
+        ]
+      ]
+    },
+    {
+      "constant": "0",
+      "terms": [
+        [
+          3,
+          "1"
+        ],
+        [
+          4,
+          "-1"
+        ]
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "node": 3,
+      "lower": "2",
+      "upper": "2"
+    },
+    {
+      "node": 4,
+      "lower": "0",
+      "upper": "4"
+    }
+  ],
+  "assumptions": [],
+  "assertion": {
+    "node": 1,
+    "upper": "0"
+  }
+}

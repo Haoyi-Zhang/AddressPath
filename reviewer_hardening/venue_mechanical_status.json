@@ -1,0 +1,17 @@
+{
+  "abstract_present": true,
+  "acknowledgments_present": false,
+  "acmart_class": true,
+  "anonymous_option": true,
+  "author_commands": 1,
+  "ccs_present": true,
+  "class_options": [
+    "acmsmall",
+    "screen",
+    "review",
+    "anonymous"
+  ],
+  "keywords_present": true,
+  "review_option": true,
+  "title_present": true
+}

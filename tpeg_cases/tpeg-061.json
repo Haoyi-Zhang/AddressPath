@@ -1,0 +1,51 @@
+{
+  "id": "tpeg-061",
+  "family": "inconsistent-evidence",
+  "accounting": {
+    "domain": {
+      "kind": "integer_grid",
+      "bounds": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "nodes": [
+      {
+        "input": 0
+      }
+    ],
+    "observations": [
+      {
+        "node": 0,
+        "lower": "0",
+        "upper": "0"
+      },
+      {
+        "node": 0,
+        "lower": "1",
+        "upper": "1"
+      }
+    ],
+    "assumptions": []
+  },
+  "graph": {
+    "vertices": [
+      "request",
+      "foreign-use"
+    ],
+    "source": 0,
+    "bad_vertices": [
+      1
+    ],
+    "edges": [
+      {
+        "id": "e00",
+        "tail": 0,
+        "head": 1,
+        "residual_node": 0
+      }
+    ]
+  }
+}

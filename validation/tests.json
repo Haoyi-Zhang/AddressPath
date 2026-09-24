@@ -1,0 +1,16 @@
+{
+  "methods": 74,
+  "passed": true,
+  "failures": 0,
+  "errors": 0,
+  "cpu_s": 16.397232943,
+  "wall_s": 16.405750858000033,
+  "peak_rss_kib": 94508,
+  "arithmetic_certificate_calls": 212,
+  "tpeg_certificate_calls": 77,
+  "accepted": 174,
+  "rejected": 115,
+  "finite_cover_state_visit_upper_bound": 4285,
+  "signature_cover_state_visit_upper_bound": 57352,
+  "certificate_calls": 289
+}

@@ -1,0 +1,22 @@
+claim_id,claim,claim_type,evidence,checker_or_source,residual_limit
+C01,Every accepted arithmetic certificate satisfies the encoded implication,formal theorem,exact witness validation and exhaustive small-model meta-check,production checker plus independent oracle,Only the declared affine bounded model
+C02,Every accepted uniform cut blocks all abstract bad paths,formal theorem,canonical cut reconstruction and per-edge closure proof,production checker,Depends on graph fidelity
+C03,Every accepted path budget blocks every explicit canonical bad path,formal theorem,per-path open-edge upper-bound witness and path reconstruction,production checker,Number of paths may be exponential
+C04,Path budget can be exponentially smaller than explicit signatures,asymptotic construction,alternating family certificate-size data and proof,paper plus generated family,Separation is for explicit signature representation
+C05,Path budget is not universally complete,limitation,forced fallback family and negative tests,artifact result ledger,Not a lower bound for all proof systems
+C06,Maximum-signature cover is exact for the finite bounded model,formal theorem,signature antichain reconstruction and finite oracle,checker plus oracle,Exponential state/signature space
+C07,Empty allowed-state models cannot yield favorable proof,safety invariant,inconsistency branch and regression tests,checker tests,Input assumptions may still be semantically wrong
+C08,Unconstrained bypasses are not silently certified,negative control,architecture-shaped bypass case,independent architecture oracle,Only modeled bypasses
+C09,Specification-derived topology labels are traceable,provenance,commit hashes file hashes and source anchors,architecture_provenance.json,Does not validate synthetic evidence
+C10,Architecture cases are not silicon validation,scope boundary,explicit model and paper nonclaim,claim boundary checks,Concrete refinement remains future work
+C11,Generator is outside the proof trusted base,design claim,independent checker revalidation,TCB document,Checker remains trusted
+C12,Independent oracle does not import production modules,implementation independence,static import audit and separate parser,reviewer gate,Shared Python runtime remains
+C13,Results are deterministic for semantic outputs,reproducibility,clean ZIP reruns and hash-seed comparison,reproduction scripts,Timing fields may vary
+C14,Paper tables are generated from artifact data,traceability,reconciliation script and source-data hashes,paper reconcile,Typesetting remains human-readable audit target
+C15,All bibliography entries are used,bibliographic quality,citation-key reconciliation,bibliography audit,Use does not imply scientific correctness
+C16,Persistent identifiers are not duplicated,bibliographic quality,identifier normalization and uniqueness check,bibliography audit,Standards may use stable URLs instead of DOI
+C17,PDF is anonymous at metadata and visible-text levels,submission quality,pdfinfo text scan and rendered-page audit,paper audit,Submission portal metadata is external
+C18,Main paper preserves the page contract,submission quality,references-page detector and page count,paper reconcile,Live venue rules may differ
+C19,All fonts are embedded,production quality,pdffonts audit,paper audit,Printer behavior is external
+C20,No claim treats insufficient evidence as a vulnerability,claim discipline,text and decision-label audit,paper plus gate,Readers can still misinterpret outside context
+C21,No claim upgrades abstract proof without refinement premises,claim discipline,conditional theorem and nonclaim scan,paper plus gate,Premises are not discharged for hardware

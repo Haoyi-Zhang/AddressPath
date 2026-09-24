@@ -1,0 +1,7 @@
+{
+  "cap": 4096,
+  "first_rejected_depth": 13,
+  "largest_accepted_depth": 12,
+  "schema": "path-enumeration-boundary-v1",
+  "status": "PASS"
+}

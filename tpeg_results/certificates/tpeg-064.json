@@ -1,0 +1,16 @@
+{
+  "kind": "inconsistent",
+  "certificate": {
+    "kind": "inconsistent",
+    "multipliers": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "1",
+      "0"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "uniform_cut",
+  "witness": [
+    3,
+    0
+  ],
+  "reachable": [
+    0
+  ],
+  "edge_proofs": [
+    {
+      "edge": "e00",
+      "certificate": {
+        "kind": "linear",
+        "witness": [
+          3,
+          0
+        ],
+        "multipliers": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "1",
+          "0"
+        ]
+      }
+    }
+  ]
+}

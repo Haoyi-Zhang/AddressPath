@@ -1,0 +1,120 @@
+{
+  "id": "tpeg-032",
+  "family": "interior-cut",
+  "accounting": {
+    "domain": {
+      "kind": "integer_grid",
+      "bounds": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    "nodes": [
+      {
+        "input": 0
+      },
+      {
+        "input": 1
+      },
+      {
+        "input": 2
+      },
+      {
+        "input": 3
+      },
+      {
+        "input": 4
+      },
+      {
+        "input": 5
+      }
+    ],
+    "observations": [
+      {
+        "node": 1,
+        "lower": "0",
+        "upper": "3/4"
+      },
+      {
+        "node": 4,
+        "lower": "0",
+        "upper": "3/4"
+      }
+    ],
+    "assumptions": []
+  },
+  "graph": {
+    "vertices": [
+      "request",
+      "hit",
+      "walk",
+      "hit-merge",
+      "walk-merge",
+      "foreign-use"
+    ],
+    "source": 0,
+    "bad_vertices": [
+      5
+    ],
+    "edges": [
+      {
+        "id": "e00",
+        "tail": 0,
+        "head": 1,
+        "residual_node": 0
+      },
+      {
+        "id": "e01",
+        "tail": 0,
+        "head": 2,
+        "residual_node": 3
+      },
+      {
+        "id": "e02",
+        "tail": 1,
+        "head": 3,
+        "residual_node": 1
+      },
+      {
+        "id": "e03",
+        "tail": 2,
+        "head": 4,
+        "residual_node": 4
+      },
+      {
+        "id": "e04",
+        "tail": 3,
+        "head": 5,
+        "residual_node": 2
+      },
+      {
+        "id": "e05",
+        "tail": 4,
+        "head": 5,
+        "residual_node": 5
+      }
+    ]
+  }
+}

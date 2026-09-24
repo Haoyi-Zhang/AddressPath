@@ -1,0 +1,30 @@
+{
+  "id": "case-086",
+  "family": "reversed_interval",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    }
+  ],
+  "observations": [
+    {
+      "node": 0,
+      "lower": "2",
+      "upper": "1"
+    }
+  ],
+  "assumptions": [],
+  "assertion": {
+    "node": 0,
+    "upper": "0"
+  }
+}

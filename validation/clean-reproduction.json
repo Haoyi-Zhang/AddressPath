@@ -1,0 +1,56 @@
+{
+  "arithmetic_cases": 86,
+  "arithmetic_meta_models": 3915,
+  "cumulative_stage_wall_s": 87.49616782399994,
+  "exact_non_timing_checks": {
+    "all_certificate_objects": "PASS",
+    "arithmetic_exhaustive_meta_check": "PASS",
+    "arithmetic_summary": "PASS",
+    "generated_inputs": "PASS",
+    "independent_finite_oracles": "PASS",
+    "mutation_test_suite": "PASS",
+    "paper_table_and_plot_data": "PASS",
+    "standalone_checker_entry_points": "PASS",
+    "tpeg_exhaustive_meta_check": "PASS",
+    "tpeg_summary": "PASS"
+  },
+  "note": "Stages were invoked separately against one fresh output directory. Timing and memory may vary; generated non-timing fields, decisions, certificates, tables, and characterization checks were compared exactly. Paper compilation is separate.",
+  "peak_rss_kib": 95400,
+  "scope": "Fresh generation and execution of 86 arithmetic regressions and 72 TPEG models; certificate comparison; independent finite oracles; 74 mutation-oriented test methods; exhaustive 3,915-model arithmetic and 2,865-antichain TPEG meta-checks; aggregate tables; and standalone checker entry points. Paper compilation is separate.",
+  "stages": [
+    {
+      "child_peak_rss_kib": 94000,
+      "stage": "core",
+      "status": "PASS",
+      "total_cpu_s": 9.640037533000001,
+      "wall_s": 9.654066545999967
+    },
+    {
+      "child_peak_rss_kib": 93612,
+      "stage": "tpeg-middle",
+      "status": "PASS",
+      "total_cpu_s": 25.750067958000002,
+      "wall_s": 25.756313826999985
+    },
+    {
+      "child_peak_rss_kib": 93864,
+      "stage": "tpeg-tail",
+      "status": "PASS",
+      "total_cpu_s": 25.755829741,
+      "wall_s": 25.765345615000115
+    },
+    {
+      "child_peak_rss_kib": 95400,
+      "stage": "validation",
+      "status": "PASS",
+      "total_cpu_s": 26.310101552,
+      "wall_s": 26.320441835999873
+    }
+  ],
+  "status": "PASS",
+  "test_methods": 74,
+  "total_cpu_s": 87.456036784,
+  "tpeg_cases": 72,
+  "tpeg_meta_antichains": 2865,
+  "workers": 1
+}

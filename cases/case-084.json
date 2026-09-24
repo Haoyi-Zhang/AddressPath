@@ -1,0 +1,28 @@
+{
+  "id": "case-084",
+  "family": "constant_assertion",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    },
+    {
+      "constant": "1",
+      "terms": []
+    }
+  ],
+  "observations": [],
+  "assumptions": [],
+  "assertion": {
+    "node": 1,
+    "upper": "0"
+  }
+}

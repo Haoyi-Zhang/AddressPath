@@ -1,0 +1,52 @@
+{
+  "case_count": 5,
+  "cases": [
+    {
+      "allowed_states": 1,
+      "bad_paths": 1,
+      "certificate_method": "uniform_cut",
+      "compact_method": "uniform_cut",
+      "decision": "PROVED",
+      "id": "sv39_serial_permission_gate",
+      "unsafe_states": 0
+    },
+    {
+      "allowed_states": 9,
+      "bad_paths": 2,
+      "certificate_method": "path_budget",
+      "compact_method": "path_budget",
+      "decision": "PROVED",
+      "id": "riscv_two_stage_correlated_acceptance",
+      "unsafe_states": 0
+    },
+    {
+      "allowed_states": 49,
+      "bad_paths": 2,
+      "certificate_method": "path_budget",
+      "compact_method": "path_budget",
+      "decision": "PROVED",
+      "id": "riscv_iommu_context_parallelism",
+      "unsafe_states": 0
+    },
+    {
+      "allowed_states": 7,
+      "bad_paths": 1,
+      "certificate_method": "path_budget",
+      "compact_method": "path_budget",
+      "decision": "PROVED",
+      "id": "rocket_ptw_control_skeleton",
+      "unsafe_states": 0
+    },
+    {
+      "allowed_states": 4,
+      "bad_paths": 2,
+      "certificate_method": "none",
+      "compact_method": "none",
+      "decision": "INSUFFICIENT",
+      "id": "negative_control_unconstrained_bypass",
+      "unsafe_states": 3
+    }
+  ],
+  "schema": "tpeg-architecture-case-results-v1",
+  "status": "PASS"
+}

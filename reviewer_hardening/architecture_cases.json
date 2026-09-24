@@ -1,0 +1,596 @@
+{
+  "cases": [
+    {
+      "bad_nodes": [
+        "bad"
+      ],
+      "certificate": {
+        "cut_edges": [
+          {
+            "edge_id": "e_perm",
+            "multipliers": {
+              "constraint:permission_counter_zero": "1"
+            }
+          }
+        ],
+        "method": "uniform_cut"
+      },
+      "claim_boundary": "Checks the certificate plumbing for a serial translation topology only; the zero-permission evidence is synthetic.",
+      "constraints": [
+        {
+          "coefficients": {
+            "perm": 1
+          },
+          "id": "permission_counter_zero",
+          "op": "<=",
+          "rhs": 0
+        }
+      ],
+      "edges": [
+        {
+          "dst": "l2",
+          "id": "e_l2",
+          "open_var": "l2",
+          "src": "request"
+        },
+        {
+          "dst": "l1",
+          "id": "e_l1",
+          "open_var": "l1",
+          "src": "l2"
+        },
+        {
+          "dst": "l0",
+          "id": "e_l0",
+          "open_var": "l0",
+          "src": "l1"
+        },
+        {
+          "dst": "permission",
+          "id": "e_perm",
+          "open_var": "perm",
+          "src": "l0"
+        },
+        {
+          "dst": "commit",
+          "id": "e_commit",
+          "open_var": "commit",
+          "src": "permission"
+        },
+        {
+          "dst": "bad",
+          "id": "e_bad",
+          "open_var": "commit",
+          "src": "commit"
+        }
+      ],
+      "expected": {
+        "compact_method": "uniform_cut",
+        "ground_truth": "PROVED"
+      },
+      "id": "sv39_serial_permission_gate",
+      "nodes": [
+        "request",
+        "l2",
+        "l1",
+        "l0",
+        "permission",
+        "commit",
+        "bad"
+      ],
+      "source": "RISC-V privileged architecture Sv39 page-table walk topology",
+      "source_node": "request",
+      "variables": {
+        "commit": [
+          1,
+          1
+        ],
+        "l0": [
+          1,
+          1
+        ],
+        "l1": [
+          1,
+          1
+        ],
+        "l2": [
+          1,
+          1
+        ],
+        "perm": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "bad_nodes": [
+        "bad"
+      ],
+      "certificate": {
+        "method": "path_budget",
+        "paths": [
+          {
+            "edge_ids": [
+              "e_vs_a",
+              "e_g_a",
+              "e_commit_a",
+              "e_bad_a"
+            ],
+            "multipliers": {
+              "constraint:path_a_budget": "1",
+              "ub:commit_a": "2"
+            }
+          },
+          {
+            "edge_ids": [
+              "e_vs_b",
+              "e_g_b",
+              "e_commit_b",
+              "e_bad_b"
+            ],
+            "multipliers": {
+              "constraint:path_b_budget": "1",
+              "ub:commit_b": "2"
+            }
+          }
+        ]
+      },
+      "claim_boundary": "The graph shape follows two-stage translation; the path-budget inequalities are synthetic evidence assumptions and are not claims about architectural counters.",
+      "constraints": [
+        {
+          "coefficients": {
+            "g_a": 1,
+            "vs_a": 1
+          },
+          "id": "path_a_budget",
+          "op": "<=",
+          "rhs": 1
+        },
+        {
+          "coefficients": {
+            "g_b": 1,
+            "vs_b": 1
+          },
+          "id": "path_b_budget",
+          "op": "<=",
+          "rhs": 1
+        }
+      ],
+      "edges": [
+        {
+          "dst": "vs_a",
+          "id": "e_vs_a",
+          "open_var": "vs_a",
+          "src": "request"
+        },
+        {
+          "dst": "g_a",
+          "id": "e_g_a",
+          "open_var": "g_a",
+          "src": "vs_a"
+        },
+        {
+          "dst": "commit_a",
+          "id": "e_commit_a",
+          "open_var": "commit_a",
+          "src": "g_a"
+        },
+        {
+          "dst": "bad",
+          "id": "e_bad_a",
+          "open_var": "commit_a",
+          "src": "commit_a"
+        },
+        {
+          "dst": "vs_b",
+          "id": "e_vs_b",
+          "open_var": "vs_b",
+          "src": "request"
+        },
+        {
+          "dst": "g_b",
+          "id": "e_g_b",
+          "open_var": "g_b",
+          "src": "vs_b"
+        },
+        {
+          "dst": "commit_b",
+          "id": "e_commit_b",
+          "open_var": "commit_b",
+          "src": "g_b"
+        },
+        {
+          "dst": "bad",
+          "id": "e_bad_b",
+          "open_var": "commit_b",
+          "src": "commit_b"
+        }
+      ],
+      "expected": {
+        "compact_method": "path_budget",
+        "ground_truth": "PROVED"
+      },
+      "id": "riscv_two_stage_correlated_acceptance",
+      "nodes": [
+        "request",
+        "vs_a",
+        "g_a",
+        "vs_b",
+        "g_b",
+        "commit_a",
+        "commit_b",
+        "bad"
+      ],
+      "source": "RISC-V hypervisor extension two-stage address-translation topology",
+      "source_node": "request",
+      "variables": {
+        "commit_a": [
+          1,
+          1
+        ],
+        "commit_b": [
+          1,
+          1
+        ],
+        "g_a": [
+          0,
+          1
+        ],
+        "g_b": [
+          0,
+          1
+        ],
+        "vs_a": [
+          0,
+          1
+        ],
+        "vs_b": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "bad_nodes": [
+        "bad"
+      ],
+      "certificate": {
+        "method": "path_budget",
+        "paths": [
+          {
+            "edge_ids": [
+              "e_ddt0",
+              "e_pdt0",
+              "e_xlate0",
+              "e_ret0",
+              "e_bad0"
+            ],
+            "multipliers": {
+              "constraint:context0_budget": "1",
+              "ub:ret0": "2"
+            }
+          },
+          {
+            "edge_ids": [
+              "e_ddt1",
+              "e_pdt1",
+              "e_xlate1",
+              "e_ret1",
+              "e_bad1"
+            ],
+            "multipliers": {
+              "constraint:context1_budget": "1",
+              "ub:ret1": "2"
+            }
+          }
+        ]
+      },
+      "claim_boundary": "The case validates multi-context path accounting. It neither models a complete IOMMU nor asserts that any physical IOMMU exposes these evidence variables.",
+      "constraints": [
+        {
+          "coefficients": {
+            "ddt0": 1,
+            "pdt0": 1,
+            "xlate0": 1
+          },
+          "id": "context0_budget",
+          "op": "<=",
+          "rhs": 2
+        },
+        {
+          "coefficients": {
+            "ddt1": 1,
+            "pdt1": 1,
+            "xlate1": 1
+          },
+          "id": "context1_budget",
+          "op": "<=",
+          "rhs": 2
+        }
+      ],
+      "edges": [
+        {
+          "dst": "ddt0",
+          "id": "e_ddt0",
+          "open_var": "ddt0",
+          "src": "dma"
+        },
+        {
+          "dst": "pdt0",
+          "id": "e_pdt0",
+          "open_var": "pdt0",
+          "src": "ddt0"
+        },
+        {
+          "dst": "xlate0",
+          "id": "e_xlate0",
+          "open_var": "xlate0",
+          "src": "pdt0"
+        },
+        {
+          "dst": "ret0",
+          "id": "e_ret0",
+          "open_var": "ret0",
+          "src": "xlate0"
+        },
+        {
+          "dst": "bad",
+          "id": "e_bad0",
+          "open_var": "ret0",
+          "src": "ret0"
+        },
+        {
+          "dst": "ddt1",
+          "id": "e_ddt1",
+          "open_var": "ddt1",
+          "src": "dma"
+        },
+        {
+          "dst": "pdt1",
+          "id": "e_pdt1",
+          "open_var": "pdt1",
+          "src": "ddt1"
+        },
+        {
+          "dst": "xlate1",
+          "id": "e_xlate1",
+          "open_var": "xlate1",
+          "src": "pdt1"
+        },
+        {
+          "dst": "ret1",
+          "id": "e_ret1",
+          "open_var": "ret1",
+          "src": "xlate1"
+        },
+        {
+          "dst": "bad",
+          "id": "e_bad1",
+          "open_var": "ret1",
+          "src": "ret1"
+        }
+      ],
+      "expected": {
+        "compact_method": "path_budget",
+        "ground_truth": "PROVED"
+      },
+      "id": "riscv_iommu_context_parallelism",
+      "nodes": [
+        "dma",
+        "ddt0",
+        "pdt0",
+        "xlate0",
+        "ret0",
+        "ddt1",
+        "pdt1",
+        "xlate1",
+        "ret1",
+        "bad"
+      ],
+      "source": "RISC-V IOMMU device/process context and translation topology",
+      "source_node": "dma",
+      "variables": {
+        "ddt0": [
+          0,
+          1
+        ],
+        "ddt1": [
+          0,
+          1
+        ],
+        "pdt0": [
+          0,
+          1
+        ],
+        "pdt1": [
+          0,
+          1
+        ],
+        "ret0": [
+          1,
+          1
+        ],
+        "ret1": [
+          1,
+          1
+        ],
+        "xlate0": [
+          0,
+          1
+        ],
+        "xlate1": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "bad_nodes": [
+        "bad"
+      ],
+      "certificate": {
+        "method": "path_budget",
+        "paths": [
+          {
+            "edge_ids": [
+              "e_req",
+              "e_mem",
+              "e_pte",
+              "e_perm",
+              "e_resp"
+            ],
+            "multipliers": {
+              "constraint:walk_budget": "1",
+              "ub:req": "1",
+              "ub:resp": "1"
+            }
+          }
+        ]
+      },
+      "claim_boundary": "Control-flow identifiers and ordering are source-derived; the affine evidence budget is synthetic and does not establish Rocket Chip correctness.",
+      "constraints": [
+        {
+          "coefficients": {
+            "mem": 1,
+            "perm": 1,
+            "pte": 1
+          },
+          "id": "walk_budget",
+          "op": "<=",
+          "rhs": 2
+        }
+      ],
+      "edges": [
+        {
+          "dst": "memory",
+          "id": "e_req",
+          "open_var": "req",
+          "src": "request"
+        },
+        {
+          "dst": "pte",
+          "id": "e_mem",
+          "open_var": "mem",
+          "src": "memory"
+        },
+        {
+          "dst": "permission",
+          "id": "e_pte",
+          "open_var": "pte",
+          "src": "pte"
+        },
+        {
+          "dst": "response",
+          "id": "e_perm",
+          "open_var": "perm",
+          "src": "permission"
+        },
+        {
+          "dst": "bad",
+          "id": "e_resp",
+          "open_var": "resp",
+          "src": "response"
+        }
+      ],
+      "expected": {
+        "compact_method": "path_budget",
+        "ground_truth": "PROVED"
+      },
+      "id": "rocket_ptw_control_skeleton",
+      "nodes": [
+        "request",
+        "memory",
+        "pte",
+        "permission",
+        "response",
+        "bad"
+      ],
+      "source": "Rocket Chip PTW/TLB control-flow skeleton from commit-pinned open-source RTL generator code",
+      "source_node": "request",
+      "variables": {
+        "mem": [
+          0,
+          1
+        ],
+        "perm": [
+          0,
+          1
+        ],
+        "pte": [
+          0,
+          1
+        ],
+        "req": [
+          1,
+          1
+        ],
+        "resp": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "bad_nodes": [
+        "bad"
+      ],
+      "certificate": {
+        "method": "none"
+      },
+      "claim_boundary": "Confirms that an unconstrained bypass is not silently certified.",
+      "constraints": [],
+      "edges": [
+        {
+          "dst": "walk",
+          "id": "e_walk",
+          "open_var": "walk",
+          "src": "request"
+        },
+        {
+          "dst": "bad",
+          "id": "e_walk_bad",
+          "open_var": "walk",
+          "src": "walk"
+        },
+        {
+          "dst": "bypass",
+          "id": "e_bypass",
+          "open_var": "bypass",
+          "src": "request"
+        },
+        {
+          "dst": "bad",
+          "id": "e_bypass_bad",
+          "open_var": "bypass",
+          "src": "bypass"
+        }
+      ],
+      "expected": {
+        "compact_method": "none",
+        "ground_truth": "INSUFFICIENT"
+      },
+      "id": "negative_control_unconstrained_bypass",
+      "nodes": [
+        "request",
+        "walk",
+        "bypass",
+        "bad"
+      ],
+      "source": "Architecture-shaped negative control",
+      "source_node": "request",
+      "variables": {
+        "bypass": [
+          0,
+          1
+        ],
+        "walk": [
+          0,
+          1
+        ]
+      }
+    }
+  ],
+  "schema": "tpeg-architecture-cases-v1",
+  "scope": "Specification-derived topologies with synthetic bounded evidence; these cases do not claim validation of a concrete processor or counter implementation."
+}

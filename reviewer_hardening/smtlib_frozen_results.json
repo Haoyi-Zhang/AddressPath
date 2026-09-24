@@ -1,0 +1,6 @@
+{
+  "engine": "z3 executable unavailable; SMT-LIB files remain independently checkable",
+  "results": {},
+  "schema": "architecture-smtlib-results-v1",
+  "status": "NOT_RUN"
+}

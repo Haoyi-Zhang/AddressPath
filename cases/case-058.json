@@ -1,0 +1,38 @@
+{
+  "id": "case-058",
+  "family": "state_ceiling",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        15
+      ],
+      [
+        0,
+        15
+      ],
+      [
+        0,
+        15
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    },
+    {
+      "input": 1
+    },
+    {
+      "input": 2
+    }
+  ],
+  "observations": [],
+  "assumptions": [],
+  "assertion": {
+    "node": 2,
+    "upper": "0"
+  }
+}

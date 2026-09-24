@@ -1,0 +1,10 @@
+family,cases,proved,insufficient,inconsistent,sink_zero_proved,uniform_cut_proved,signature_cover_certificates,enumerated_states,admitted_states,unsafe_states
+accounting-window,20,12,8,0,12,12,0,430,28,8
+alternating-cut-cover,6,6,0,0,0,0,6,24576,24576,0
+hidden-bypass,8,0,8,0,0,0,0,140,46,26
+inconsistent-evidence,8,0,0,8,0,0,0,42,0,0
+interior-cut,6,6,0,0,0,6,0,9778,706,0
+merge-boundary-cut,6,6,0,0,0,6,0,12822,5682,0
+multi-bad-cut,6,6,0,0,0,6,0,706,58,0
+source-cut,6,6,0,0,0,6,0,706,58,0
+wide-path,6,0,6,0,0,0,0,58,43,28

@@ -1,0 +1,39 @@
+{
+  "id": "case-049",
+  "family": "lattice_empty",
+  "domain": {
+    "kind": "integer_grid",
+    "bounds": [
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "nodes": [
+    {
+      "input": 0
+    },
+    {
+      "constant": "0",
+      "terms": [
+        [
+          0,
+          "2/3"
+        ]
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "node": 1,
+      "lower": "1/3",
+      "upper": "1/3"
+    }
+  ],
+  "assumptions": [],
+  "assertion": {
+    "node": 0,
+    "upper": "0"
+  }
+}

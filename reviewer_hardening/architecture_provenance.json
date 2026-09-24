@@ -1,0 +1,5 @@
+{
+  "schema": "architecture-provenance-v1",
+  "scope": "Commit-pinned source anchors for topology names only. No source is claimed to validate the synthetic evidence constraints.",
+  "sources": []
+}

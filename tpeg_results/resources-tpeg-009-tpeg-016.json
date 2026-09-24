@@ -1,0 +1,19 @@
+{
+  "cases": [
+    "tpeg-009",
+    "tpeg-010",
+    "tpeg-011",
+    "tpeg-012",
+    "tpeg-013",
+    "tpeg-014",
+    "tpeg-015",
+    "tpeg-016"
+  ],
+  "workers": 1,
+  "cpu_s": 0.013070619000000061,
+  "wall_s": 0.016780453999956535,
+  "peak_rss_kib": 92712,
+  "states_per_independent_enumerator": 193,
+  "admitted_states": 12,
+  "certificates_checked": 4
+}

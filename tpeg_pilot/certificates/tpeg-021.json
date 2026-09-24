@@ -1,0 +1,66 @@
+{
+  "kind": "uniform_cut",
+  "witness": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "reachable": [
+    0
+  ],
+  "edge_proofs": [
+    {
+      "edge": "e00",
+      "certificate": {
+        "kind": "linear",
+        "witness": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "multipliers": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      }
+    },
+    {
+      "edge": "e01",
+      "certificate": {
+        "kind": "linear",
+        "witness": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "multipliers": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      }
+    }
+  ]
+}

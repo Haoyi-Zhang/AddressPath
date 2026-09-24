@@ -1,0 +1,243 @@
+{
+  "id": "tpeg-044",
+  "family": "alternating-cut-cover",
+  "accounting": {
+    "domain": {
+      "kind": "integer_grid",
+      "bounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "nodes": [
+      {
+        "input": 0
+      },
+      {
+        "input": 1
+      },
+      {
+        "input": 2
+      },
+      {
+        "input": 3
+      },
+      {
+        "input": 4
+      },
+      {
+        "input": 5
+      },
+      {
+        "input": 6
+      },
+      {
+        "input": 7
+      },
+      {
+        "input": 8
+      },
+      {
+        "input": 9
+      },
+      {
+        "input": 10
+      },
+      {
+        "input": 11
+      },
+      {
+        "constant": "1",
+        "terms": [
+          [
+            0,
+            "-1"
+          ]
+        ]
+      },
+      {
+        "constant": "1",
+        "terms": [
+          [
+            1,
+            "-1"
+          ]
+        ]
+      },
+      {
+        "constant": "1",
+        "terms": [
+          [
+            2,
+            "-1"
+          ]
+        ]
+      },
+      {
+        "constant": "1",
+        "terms": [
+          [
+            3,
+            "-1"
+          ]
+        ]
+      },
+      {
+        "constant": "1",
+        "terms": [
+          [
+            4,
+            "-1"
+          ]
+        ]
+      },
+      {
+        "constant": "1",
+        "terms": [
+          [
+            5,
+            "-1"
+          ]
+        ]
+      }
+    ],
+    "observations": [],
+    "assumptions": []
+  },
+  "graph": {
+    "vertices": [
+      "request",
+      "arm-1",
+      "arm-2",
+      "arm-3",
+      "arm-4",
+      "arm-5",
+      "arm-6",
+      "foreign-use"
+    ],
+    "source": 0,
+    "bad_vertices": [
+      7
+    ],
+    "edges": [
+      {
+        "id": "e00",
+        "tail": 0,
+        "head": 1,
+        "residual_node": 0
+      },
+      {
+        "id": "e01",
+        "tail": 1,
+        "head": 7,
+        "residual_node": 12
+      },
+      {
+        "id": "e02",
+        "tail": 0,
+        "head": 2,
+        "residual_node": 1
+      },
+      {
+        "id": "e03",
+        "tail": 2,
+        "head": 7,
+        "residual_node": 13
+      },
+      {
+        "id": "e04",
+        "tail": 0,
+        "head": 3,
+        "residual_node": 2
+      },
+      {
+        "id": "e05",
+        "tail": 3,
+        "head": 7,
+        "residual_node": 14
+      },
+      {
+        "id": "e06",
+        "tail": 0,
+        "head": 4,
+        "residual_node": 3
+      },
+      {
+        "id": "e07",
+        "tail": 4,
+        "head": 7,
+        "residual_node": 15
+      },
+      {
+        "id": "e08",
+        "tail": 0,
+        "head": 5,
+        "residual_node": 4
+      },
+      {
+        "id": "e09",
+        "tail": 5,
+        "head": 7,
+        "residual_node": 16
+      },
+      {
+        "id": "e10",
+        "tail": 0,
+        "head": 6,
+        "residual_node": 5
+      },
+      {
+        "id": "e11",
+        "tail": 6,
+        "head": 7,
+        "residual_node": 17
+      }
+    ]
+  }
+}

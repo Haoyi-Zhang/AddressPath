@@ -1,0 +1,92 @@
+{
+  "id": "tpeg-021",
+  "family": "source-cut",
+  "accounting": {
+    "domain": {
+      "kind": "integer_grid",
+      "bounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "nodes": [
+      {
+        "input": 0
+      },
+      {
+        "input": 1
+      },
+      {
+        "input": 2
+      },
+      {
+        "input": 3
+      }
+    ],
+    "observations": [
+      {
+        "node": 0,
+        "lower": "0",
+        "upper": "0"
+      },
+      {
+        "node": 2,
+        "lower": "0",
+        "upper": "0"
+      }
+    ],
+    "assumptions": []
+  },
+  "graph": {
+    "vertices": [
+      "request",
+      "hit-arm",
+      "walk-arm",
+      "foreign-use"
+    ],
+    "source": 0,
+    "bad_vertices": [
+      3
+    ],
+    "edges": [
+      {
+        "id": "e00",
+        "tail": 0,
+        "head": 1,
+        "residual_node": 0
+      },
+      {
+        "id": "e01",
+        "tail": 0,
+        "head": 2,
+        "residual_node": 2
+      },
+      {
+        "id": "e02",
+        "tail": 1,
+        "head": 3,
+        "residual_node": 1
+      },
+      {
+        "id": "e03",
+        "tail": 2,
+        "head": 3,
+        "residual_node": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "cases": 72,
+  "exact": {
+    "PROVED": 42,
+    "INSUFFICIENT": 22,
+    "INCONSISTENT": 8
+  },
+  "certificates": {
+    "uniform_cut": 36,
+    "none": 22,
+    "signature_cover": 6,
+    "inconsistent": 8
+  },
+  "sink_zero_proved": 12,
+  "uniform_cut_proved": 36,
+  "complete_finite_proved": 42,
+  "states_per_independent_enumerator": 49258,
+  "admitted_states": 31197,
+  "unsafe_states": 62,
+  "distinct_signature_sum": 729,
+  "cpu_s": 48.194666065,
+  "wall_s": 48.22494264799997,
+  "peak_rss_kib": 93356,
+  "certificate_bytes": {
+    "sum": 52370,
+    "min_nonzero": 173,
+    "max": 13277
+  },
+  "maxima": {
+    "inputs": 12,
+    "nodes": 18,
+    "observables": 2,
+    "inequalities": 24,
+    "vertices": 8,
+    "edges": 12,
+    "enumerated_states": 4096,
+    "feasible_states": 4096,
+    "distinct_signatures": 64,
+    "maximal_signatures": 64,
+    "wall_s": 4.529854570999987
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "tpeg-056",
+  "family": "wide-path",
+  "accounting": {
+    "domain": {
+      "kind": "integer_grid",
+      "bounds": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "nodes": [
+      {
+        "input": 0
+      },
+      {
+        "input": 1
+      }
+    ],
+    "observations": [
+      {
+        "node": 0,
+        "lower": "1",
+        "upper": "2"
+      },
+      {
+        "node": 1,
+        "lower": "1",
+        "upper": "2"
+      }
+    ],
+    "assumptions": []
+  },
+  "graph": {
+    "vertices": [
+      "request",
+      "translation-stage",
+      "foreign-use"
+    ],
+    "source": 0,
+    "bad_vertices": [
+      2
+    ],
+    "edges": [
+      {
+        "id": "e00",
+        "tail": 0,
+        "head": 1,
+        "residual_node": 0
+      },
+      {
+        "id": "e01",
+        "tail": 1,
+        "head": 2,
+        "residual_node": 1
+      }
+    ]
+  }
+}
