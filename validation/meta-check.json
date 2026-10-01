@@ -9,11 +9,13 @@
   "unsafe_families": 2182,
   "uniform_cut_safe_families": 363,
   "signature_cover_only_safe_families": 320,
+  "source_side_sets_per_family": 4,
+  "source_side_sets_checked": 11460,
   "checks": {
     "maximal_signature_characterization": "PASS",
     "uniform_zero_cut_characterization": "PASS"
   },
-  "cpu_s": 1.3986877509999998,
-  "wall_s": 1.4000778860001901,
-  "peak_rss_kib": 95276
+  "cpu_s": 1.4156066090000001,
+  "wall_s": 1.415969670000095,
+  "peak_rss_kib": 95392
 }

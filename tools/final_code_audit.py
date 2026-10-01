@@ -34,7 +34,7 @@ def main():
         rel=p.relative_to(ROOT)
         try: src=p.read_text(encoding='utf-8'); tree=ast.parse(src,filename=str(rel))
         except Exception as e: errors.append(f'{rel}: parse/UTF-8 failure: {e}'); continue
-        if re.search(r'\b(?:TODO|TBD|FIXME|XXX)\b',src,re.I): errors.append(f'{rel}: unfinished marker')
+        if rel != Path('tools/final_code_audit.py') and re.search(r'\b(?:TODO|TBD|FIXME|XXX)\b',src,re.I): errors.append(f'{rel}: unfinished marker')
         for node in ast.walk(tree):
             if isinstance(node,(ast.Import,ast.ImportFrom)):
                 names=[]

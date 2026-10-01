@@ -21,7 +21,7 @@
       "sha256": "c3446bab6b20d3fc4067bddf69b3389f445caf2fdb2c81ee5c4a29606cc6f583"
     },
     {
-      "bytes": 4755,
+      "bytes": 5823,
       "imports": [
         "__future__",
         "argparse",
@@ -32,7 +32,23 @@
         "time"
       ],
       "path": "exhaustive_meta.py",
-      "sha256": "354ec0f1c04f69ca2cfdd6b33365e36b431126a093a1f628c868f366723b61df"
+      "sha256": "debd3a31830b4d2cf772dfd4e7242038868b93850dbd876fc6958251ff37e469"
+    },
+    {
+      "bytes": 4219,
+      "imports": [
+        "__future__",
+        "argparse",
+        "json",
+        "os",
+        "pathlib",
+        "shutil",
+        "subprocess",
+        "sys",
+        "time"
+      ],
+      "path": "final_reproduce.py",
+      "sha256": "5ac03920ba03fe8aafc063ea05437ae158fbdeeecf0b141113bf7f5807134f88"
     },
     {
       "bytes": 4377,
@@ -113,6 +129,29 @@
       "sha256": "5a3569943af498fc5b029d32c18119eac0bff81532dea0f156396e6187ecd093"
     },
     {
+      "bytes": 8012,
+      "imports": [
+        "__future__",
+        "fractions",
+        "itertools",
+        "typing"
+      ],
+      "path": "reviewer_hardening/independent_path_budget.py",
+      "sha256": "1e4206b24bedae7aa6e5fdfe552454d0500b072830b98efdf495385d341033b7"
+    },
+    {
+      "bytes": 15559,
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "fractions",
+        "itertools",
+        "typing"
+      ],
+      "path": "reviewer_hardening/path_budget.py",
+      "sha256": "61366c1d21bddd1d5b4f63bb17abebd77d7915f7463d75bd5490288996fc0b91"
+    },
+    {
       "bytes": 2718,
       "imports": [
         "__future__",
@@ -139,7 +178,7 @@
       "sha256": "6cfd6fcb6e056ee78865c2093e3f51d5942c5b541e9800457c948ee349eda9d9"
     },
     {
-      "bytes": 9603,
+      "bytes": 12903,
       "imports": [
         "__future__",
         "argparse",
@@ -154,7 +193,27 @@
         "sys"
       ],
       "path": "reviewer_hardening/reviewer_gate.py",
-      "sha256": "a4736eb18d32889b080bc6c0841e49272650f3f2960767b19b9768754b601e2f"
+      "sha256": "309d45f0330ceb3d0f3e2b5c290c7ea378365f41f8d658ad1b2ecf5d8335cdad"
+    },
+    {
+      "bytes": 10384,
+      "imports": [
+        "__future__",
+        "argparse",
+        "copy",
+        "fractions",
+        "hashlib",
+        "independent_path_budget",
+        "json",
+        "path_budget",
+        "pathlib",
+        "random",
+        "statistics",
+        "sys",
+        "time"
+      ],
+      "path": "reviewer_hardening/run_suite.py",
+      "sha256": "36ba49e48ed25dc3fbcdb4b114e252fdb557aedd112825e5f40fea7897b20ffe"
     },
     {
       "bytes": 1785,
@@ -183,6 +242,20 @@
       "sha256": "740f7aea39493d87bb6088620d5852fa650d3b8dc80464830a9188ad6aac0aec"
     },
     {
+      "bytes": 5219,
+      "imports": [
+        "__future__",
+        "copy",
+        "independent_path_budget",
+        "path_budget",
+        "pathlib",
+        "sys",
+        "unittest"
+      ],
+      "path": "reviewer_hardening/test_path_budget.py",
+      "sha256": "9bfe04a77b40b42aa8c809c6620f2a46ad0d7622cb6432d80d1a8561559665e7"
+    },
+    {
       "bytes": 12070,
       "imports": [
         "__future__",
@@ -199,30 +272,18 @@
       "sha256": "828dfc2b8e5bc74382135b308f5fde7e85a5037bccb1005a3ae3f79e8118c810"
     },
     {
-      "bytes": 624,
+      "bytes": 558,
       "imports": [
-        "hashlib",
         "json",
         "pathlib",
+        "platform",
         "sys"
       ],
-      "path": "reviewer_hardening/verify_benchmark_manifest.py",
-      "sha256": "62ee685002a37a49c0f35ef8bf2fb81981ed20b658c8afcb51a141f4de9c3ada"
+      "path": "reviewer_hardening/verify_environment.py",
+      "sha256": "dd03d2bc42dc9d1e2cec171afd06102fd5c013add437feeb047b0fc80c715f27"
     },
     {
-      "bytes": 922,
-      "imports": [
-        "hashlib",
-        "json",
-        "pathlib",
-        "re",
-        "sys"
-      ],
-      "path": "reviewer_hardening/verify_provenance.py",
-      "sha256": "c1027366c08f8b85f5a53efe0cea13335caab735f64a4b9758bc38d653e2c4b8"
-    },
-    {
-      "bytes": 1517,
+      "bytes": 1757,
       "imports": [
         "__future__",
         "argparse",
@@ -232,7 +293,7 @@
         "sys"
       ],
       "path": "run_all_checks.py",
-      "sha256": "cd96750bfc952e773a0f21e736a6a8b17b19ad710fe8d590c181e05800e2031e"
+      "sha256": "daeebb90c4269c211487fdf9f12bcad11fe195a7f9ec92b0628af877ab287727"
     },
     {
       "bytes": 3532,
@@ -390,6 +451,18 @@
       "sha256": "981510dc0a56052ea9b695e29f5727fe07ec973799723fda7af96341dc7c477e"
     },
     {
+      "bytes": 1627,
+      "imports": [
+        "__future__",
+        "importlib.util",
+        "pathlib",
+        "tempfile",
+        "unittest"
+      ],
+      "path": "test_final_reproduce.py",
+      "sha256": "8469a0632c85cceb9f8ec7cbafe6d6fb37386acb33adb79bea3bcdd38ac703b4"
+    },
+    {
       "bytes": 8177,
       "imports": [
         "checker",
@@ -421,7 +494,7 @@
       "sha256": "4e3551861726acf474ce1e5d1d5462067a6328e99bdb92c953d8b9f6ac4bc57b"
     },
     {
-      "bytes": 4481,
+      "bytes": 4526,
       "imports": [
         "__future__",
         "ast",
@@ -434,10 +507,10 @@
         "zipfile"
       ],
       "path": "tools/final_code_audit.py",
-      "sha256": "94ab9448481fe156de48bd0e6347aa5c655018e82f91bf929fa4f668f7f14dba"
+      "sha256": "ec9ffad11174fbc42afce5751974683001d7791a797973f3cf624d2c50765661"
     },
     {
-      "bytes": 3925,
+      "bytes": 3993,
       "imports": [
         "csv",
         "json",
@@ -446,12 +519,12 @@
         "sys"
       ],
       "path": "tools/verify_research_records.py",
-      "sha256": "5686688bd90920798ef307783ddf64fafff6f4b7f6b85b4a85968efef1cde683"
+      "sha256": "554df38f07cd38ece1d742cd7e87be165351250dd6942ff7f41098fec378d986"
     }
   ],
   "forbidden_constructs": [],
-  "python_files": 32,
+  "python_files": 37,
   "schema": "static-code-audit-v1",
   "status": "PASS",
-  "total_bytes": 165530
+  "total_bytes": 214283
 }

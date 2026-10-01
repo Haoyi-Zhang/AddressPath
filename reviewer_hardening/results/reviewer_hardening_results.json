@@ -1,0 +1,206 @@
+{
+  "dev": {
+    "cases": 200,
+    "mean_certificate_bytes": 198.12280701754386,
+    "path_budget_proved": 114,
+    "proved": 114,
+    "safe": 114,
+    "seed_sha256": "b211b8d765ad9b27ac554af2b2a9c6fc6b81ea88077a98726ebc501001ff5bcf",
+    "uniform_zero_proved": 84,
+    "unsafe_rejected": 86
+  },
+  "elapsed_seconds": 11.63359918599997,
+  "holdout": {
+    "cases": 500,
+    "mean_certificate_bytes": 187.86281588447653,
+    "path_budget_proved": 277,
+    "proved": 277,
+    "safe": 277,
+    "seed_sha256": "0e11441c3ecc214e37f6f4aef0f9b7c2d279173289af1c01cb3463b6b38c46c0",
+    "uniform_zero_proved": 203,
+    "unsafe_rejected": 223
+  },
+  "limits": {
+    "cap": 4096,
+    "diamond12_paths": 4096,
+    "diamond13_rejected": true
+  },
+  "metamorphic": {
+    "positive_constraint_scaling": {
+      "paths": 1,
+      "status": "PASS"
+    },
+    "renaming": {
+      "paths": 1,
+      "status": "PASS"
+    }
+  },
+  "mutations": {
+    "names": [
+      "missing_path",
+      "duplicate_path",
+      "missing_multiplier",
+      "negative_multiplier",
+      "unknown_constraint",
+      "cross_model"
+    ],
+    "rejected": 6
+  },
+  "schema": "reviewer-hardening-v1",
+  "separation": {
+    "integer_only_incompleteness": {
+      "oracle_safe": true,
+      "path_budget_rejected": true
+    },
+    "largest_checked_n": 4096,
+    "n4096_check_seconds": 0.7268861440000478,
+    "n4096_paths": 1,
+    "rows": [
+      {
+        "allowed_formula": 3,
+        "certificate_multipliers": 1,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 2,
+        "n": 1,
+        "oracle_allowed": 3,
+        "oracle_max_signatures": 2,
+        "variables": 2
+      },
+      {
+        "allowed_formula": 9,
+        "certificate_multipliers": 2,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 4,
+        "n": 2,
+        "oracle_allowed": 9,
+        "oracle_max_signatures": 4,
+        "variables": 4
+      },
+      {
+        "allowed_formula": 27,
+        "certificate_multipliers": 3,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 8,
+        "n": 3,
+        "oracle_allowed": 27,
+        "oracle_max_signatures": 8,
+        "variables": 6
+      },
+      {
+        "allowed_formula": 81,
+        "certificate_multipliers": 4,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 16,
+        "n": 4,
+        "oracle_allowed": 81,
+        "oracle_max_signatures": 16,
+        "variables": 8
+      },
+      {
+        "allowed_formula": 243,
+        "certificate_multipliers": 5,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 32,
+        "n": 5,
+        "oracle_allowed": 243,
+        "oracle_max_signatures": 32,
+        "variables": 10
+      },
+      {
+        "allowed_formula": 729,
+        "certificate_multipliers": 6,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 64,
+        "n": 6,
+        "oracle_allowed": 729,
+        "oracle_max_signatures": 64,
+        "variables": 12
+      },
+      {
+        "allowed_formula": 2187,
+        "certificate_multipliers": 7,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 128,
+        "n": 7,
+        "oracle_allowed": 2187,
+        "oracle_max_signatures": 128,
+        "variables": 14
+      },
+      {
+        "allowed_formula": 6561,
+        "certificate_multipliers": 8,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 256,
+        "n": 8,
+        "oracle_allowed": 6561,
+        "oracle_max_signatures": 256,
+        "variables": 16
+      },
+      {
+        "allowed_formula": 19683,
+        "certificate_multipliers": 9,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 512,
+        "n": 9,
+        "variables": 18
+      },
+      {
+        "allowed_formula": 59049,
+        "certificate_multipliers": 10,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 1024,
+        "n": 10,
+        "variables": 20
+      },
+      {
+        "allowed_formula": 177147,
+        "certificate_multipliers": 11,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 2048,
+        "n": 11,
+        "variables": 22
+      },
+      {
+        "allowed_formula": 531441,
+        "certificate_multipliers": 12,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 4096,
+        "n": 12,
+        "variables": 24
+      },
+      {
+        "allowed_formula": 1594323,
+        "certificate_multipliers": 13,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 8192,
+        "n": 13,
+        "variables": 26
+      },
+      {
+        "allowed_formula": 4782969,
+        "certificate_multipliers": 14,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 16384,
+        "n": 14,
+        "variables": 28
+      },
+      {
+        "allowed_formula": 14348907,
+        "certificate_multipliers": 15,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 32768,
+        "n": 15,
+        "variables": 30
+      },
+      {
+        "allowed_formula": 43046721,
+        "certificate_multipliers": 16,
+        "certificate_obligations": 1,
+        "max_signatures_formula": 65536,
+        "n": 16,
+        "variables": 32
+      }
+    ]
+  },
+  "status": "PASS"
+}

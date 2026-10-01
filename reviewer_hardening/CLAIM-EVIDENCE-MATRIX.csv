@@ -7,7 +7,7 @@ C05,Path budget is not universally complete,limitation,forced fallback family an
 C06,Maximum-signature cover is exact for the finite bounded model,formal theorem,signature antichain reconstruction and finite oracle,checker plus oracle,Exponential state/signature space
 C07,Empty allowed-state models cannot yield favorable proof,safety invariant,inconsistency branch and regression tests,checker tests,Input assumptions may still be semantically wrong
 C08,Unconstrained bypasses are not silently certified,negative control,architecture-shaped bypass case,independent architecture oracle,Only modeled bypasses
-C09,Specification-derived topology labels are traceable,provenance,commit hashes file hashes and source anchors,architecture_provenance.json,Does not validate synthetic evidence
+C09,Architecture-shaped labels are descriptive rather than source-provenance claims,scope boundary,architecture scope statement and synthetic case definitions,ARCHITECTURE-SCOPE.md and architecture_cases.json,No concrete architecture or source-code traceability is established
 C10,Architecture cases are not silicon validation,scope boundary,explicit model and paper nonclaim,claim boundary checks,Concrete refinement remains future work
 C11,Generator is outside the proof trusted base,design claim,independent checker revalidation,TCB document,Checker remains trusted
 C12,Independent oracle does not import production modules,implementation independence,static import audit and separate parser,reviewer gate,Shared Python runtime remains

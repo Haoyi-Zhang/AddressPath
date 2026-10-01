@@ -24,9 +24,9 @@
   },
   "grid_states_per_enumerator": 9419,
   "basis_systems": 9021,
-  "cpu_s": 0.559910417,
-  "wall_s": 0.5696845219999886,
-  "peak_rss_kib": 93996,
+  "cpu_s": 0.5753397419999998,
+  "wall_s": 0.5900014000000624,
+  "peak_rss_kib": 93952,
   "certificate_bytes": {
     "sum": 7479,
     "min": 88,

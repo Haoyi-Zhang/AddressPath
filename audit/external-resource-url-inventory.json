@@ -1,0 +1,228 @@
+{
+  "access_restricted": 0,
+  "audit_scope": "offline URL syntax and exact frozen-inventory comparison; live reachability not rerun",
+  "broken": 0,
+  "checked_utc": "2026-09-29",
+  "reachable": 0,
+  "records": [
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Optimizing Memory Translation Emulation in Full System Emulators",
+      "url": "https://doi.org/10.1145/2686034"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "The Impact of Page Size and Microarchitecture on Instruction Address Translation Overhead",
+      "url": "https://doi.org/10.1145/3600089"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Intermediate Address Space: Virtual Memory Optimization of Heterogeneous Architectures for Cache-Resident Workloads",
+      "url": "https://doi.org/10.1145/3659207"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Fence Placement for Legacy Data-Race-Free Programs via Synchronization Read Detection",
+      "url": "https://doi.org/10.1145/2835179"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "HRF-Relaxed: Adapting HRF to the Complexities of Industrial Heterogeneous Memory Models",
+      "url": "https://doi.org/10.1145/2701618"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "PCantorSim: Accelerating Parallel Architecture Simulation through Fractal-Based Sampling",
+      "url": "https://doi.org/10.1145/2541228.2555305"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Tyche: An Efficient and General Prefetcher for Indirect Memory Accesses",
+      "url": "https://doi.org/10.1145/3641853"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "A Relational Theory of Locality",
+      "url": "https://doi.org/10.1145/3341109"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "CASHT: Contention Analysis in Shared Hierarchies with Thefts",
+      "url": "https://doi.org/10.1145/3494538"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "SPX64: A Scratchpad Memory for General-Purpose Microprocessors",
+      "url": "https://doi.org/10.1145/3436730"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "DLAS: A Conceptual Model for Across-Stack Deep Learning Acceleration",
+      "url": "https://doi.org/10.1145/3688609"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Just-In-Time Compilation on ARM—A Closer Look at Call-Site Code Consistency",
+      "url": "https://doi.org/10.1145/3546568"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Abstract Interpretation: A Unified Lattice Model for Static Analysis of Programs by Construction or Approximation of Fixpoints",
+      "url": "https://doi.org/10.1145/512950.512973"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Counterexample-Guided Abstraction Refinement",
+      "url": "https://doi.org/10.1007/10722167_15"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Hyperproperties",
+      "url": "https://doi.org/10.3233/JCS-2009-0393"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Proof-Carrying Code",
+      "url": "https://doi.org/10.1145/263699.263712"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Certifying Algorithms",
+      "url": "https://doi.org/10.1016/j.cosrev.2010.09.009"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "CounterPoint: Using Hardware Event Counters to Refute and Refine Microarchitectural Assumptions",
+      "url": "https://doi.org/10.1145/3779212.3790145"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "PipeCheck: Specifying and Verifying Microarchitectural Enforcement of Memory Consistency Models",
+      "url": "https://doi.org/10.1109/MICRO.2014.38"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "COATCheck: Verifying Memory Ordering at the Hardware–OS Interface",
+      "url": "https://doi.org/10.1145/2872362.2872399"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "RTLCheck: Verifying the Memory Consistency of RTL Designs",
+      "url": "https://doi.org/10.1145/3123939.3124536"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "RTL2MμPATH: Multi-μPATH Synthesis with Applications to Hardware Security Verification",
+      "url": "https://doi.org/10.1109/MICRO61859.2024.00045"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Verifying Integer Programming Results",
+      "url": "https://doi.org/10.1007/978-3-319-59250-3_13"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "VIPR Certificate Construction from Black-Box ILP Solvers",
+      "url": "https://doi.org/10.4230/LIPIcs.CP.2026.52"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "A Formalization of Convex Polyhedra Based on the Simplex Method",
+      "url": "https://doi.org/10.48550/arXiv.1706.10269"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Theory of Linear and Integer Programming",
+      "url": "https://www.wiley.com/en-us/Theory+of+Linear+and+Integer+Programming-p-9780471982326"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Alloy: A Lightweight Object Modelling Notation",
+      "url": "https://doi.org/10.1145/505145.505149"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Hardware–Software Contracts for Secure Speculation",
+      "url": "https://doi.org/10.1109/SP40001.2021.00036"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Synthesis of Sound and Precise Leakage Contracts for Open-Source RISC-V Processors",
+      "url": "https://doi.org/10.1145/3719027.3765148"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Understanding Address Translation Scaling Behaviours Using Hardware Performance Counters",
+      "url": "https://doi.org/10.1109/IISWC63097.2024.00029"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Fast & Safe IO Memory Protection",
+      "url": "https://doi.org/10.1145/3694715.3695943"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "ACM acmart v2.20 class and bibliography style",
+      "url": "https://github.com/borisveytsman/acmart/releases/tag/v2.20"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "Python standard-library fractions module",
+      "url": "https://docs.python.org/3/library/fractions.html"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "ACM Transactions on Architecture and Code Optimization author guidelines",
+      "url": "https://dl.acm.org/journal/taco/author-guidelines"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "ACM Policy on Authorship (May 2026 policy locator)",
+      "url": "https://www.acm.org/publications/policies/new-acm-policy-on-authorship"
+    },
+    {
+      "classification": "not_rechecked_offline",
+      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
+      "resource_id": "ACM submission template and author workflow",
+      "url": "https://www.acm.org/publications/authors/submissions"
+    }
+  ],
+  "resource_count": 36,
+  "schema_version": 2,
+  "unchecked": 36
+}

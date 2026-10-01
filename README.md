@@ -116,7 +116,6 @@ Generative-AI assistance was used in research design, formalization, code, synth
 Newly authored code, documentation, and synthetic inputs are provided under the included MIT license to the extent applicable rights exist. External papers, publisher assets, and the Python runtime are not redistributed here; their locators and use are recorded in `external_resources.csv`.
 
 
-<!-- FINAL-CLOSURE-2026-09-19 -->
 ## Final verification gates
 
 The standard reproduction remains split into four bounded stages:
@@ -128,7 +127,7 @@ python3 reproduce.py --output reproduction --stage tpeg-tail
 python3 reproduce.py --output reproduction --stage validation
 ```
 
-The `validation` stage also runs `tools/verify_research_records.py` and `tools/final_code_audit.py`. These checks validate the 21-row claim/evidence ledger, the 36-row external-resource ledger and its frozen link audit, strict JSON/CSV parsing, absence of network-capable imports and dynamic execution, archive hygiene, and Python syntax. The frozen link audit is a point-in-time reachability check: an access-restricted endpoint is recorded separately from a successfully downloaded resource, and neither classification proves the correctness of third-party content.
+The `validation` stage also runs `tools/verify_research_records.py` and `tools/final_code_audit.py`. These checks validate the 21-row claim/evidence ledger, the 36-row external-resource ledger and its exact packaged URL inventory, strict JSON/CSV parsing, absence of network-capable imports and dynamic execution, archive hygiene, and Python syntax. The URL inventory is an offline correspondence check; it does not claim that every endpoint was reachable during the final clean build, and it does not prove the correctness of third-party content.
 
 An additional non-default determinism exercise reran all four stages under `PYTHONHASHSEED=12345`; all JSON/CSV/TeX outputs agreed after removing runtime-only timing and memory fields. Its machine-readable record is `audit/hash-seed-determinism.json`.
 
@@ -136,7 +135,7 @@ The artifact proves only the finite-model statements encoded by its inputs and c
 
 ## Reviewer-hardening gate
 
-Run `python3 run_all_checks.py --output full-reproduction` for the original staged reproduction plus the independent architecture cases, compact-certificate mutation tests, provenance audit, SMT-LIB export, compactness benchmark, claim/evidence matrix, and venue-readiness checks. The architecture cases use specification-derived graph shapes but synthetic evidence; they are not silicon validation.
+Run `python3 run_all_checks.py --output full-reproduction` for the original staged reproduction plus the independent architecture cases, compact-certificate mutation tests, provenance audit, SMT-LIB export, compactness benchmark, claim/evidence matrix, and venue-readiness checks. The architecture cases use architecture-shaped synthetic graph patterns and synthetic evidence; they are not silicon validation.
 
 ## One-command clean reproduction
 

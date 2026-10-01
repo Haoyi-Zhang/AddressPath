@@ -1,0 +1,23 @@
+{
+  "cases": [
+    "case-049",
+    "case-050",
+    "case-051",
+    "case-052",
+    "case-053",
+    "case-054",
+    "case-055",
+    "case-056",
+    "case-057",
+    "case-058",
+    "case-059",
+    "case-060"
+  ],
+  "workers": 1,
+  "cpu_s": 0.32850663999999996,
+  "wall_s": 0.3311474140000428,
+  "peak_rss_kib": 92716,
+  "basis_systems": 737,
+  "finite_states_per_enumerator": 8284,
+  "certificates_checked": 8
+}

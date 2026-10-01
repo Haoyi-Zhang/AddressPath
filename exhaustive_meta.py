@@ -7,7 +7,8 @@ most four edges, keeps graphs having a source-to-bad path, enumerates every
 antichain of open-edge signatures, and compares direct reachability with:
 
 1. maximal-signature sufficiency; and
-2. the uniform-zero-cut characterization using the union of open edges.
+2. the uniform-zero-cut characterization by independently enumerating every
+   source-side vertex set and comparing it with union-graph reachability.
 
 The check is finite evidence, not a machine-checked general proof.
 """
@@ -38,6 +39,28 @@ def reaches_bad(edges: tuple[tuple[int, int], ...], opened: frozenset[int]) -> b
     return BAD in reached
 
 
+
+def source_side_sets():
+    """All R with SOURCE in R and BAD not in R."""
+    middle=[v for v in range(VERTICES) if v not in (SOURCE,BAD)]
+    result=[]
+    for mask in range(1<<len(middle)):
+        r={SOURCE}
+        for i,v in enumerate(middle):
+            if mask & (1<<i): r.add(v)
+        result.append(frozenset(r))
+    return tuple(result)
+
+
+def has_uniform_zero_cut(edges: tuple[tuple[int,int],...], active: frozenset[int]) -> tuple[bool,int]:
+    checked=0; exists=False
+    for r in source_side_sets():
+        checked+=1
+        crossing=[i for i,(u,v) in enumerate(edges) if u in r and v not in r]
+        if all(i not in active for i in crossing):
+            exists=True
+    return exists,checked
+
 def all_antichains(m: int):
     """Enumerate all nonempty antichains of subsets of ``range(m)``."""
     subsets = tuple(frozenset(i for i in range(m) if mask & (1 << i)) for mask in range(1 << m))
@@ -53,6 +76,7 @@ def main(output: Path) -> None:
     graphs = antichains = signature_members = 0
     safe_families = unsafe_families = 0
     uniform_cut_families = cover_only_families = 0
+    source_side_sets_checked = 0
     for m in range(1, 5):
         for chosen in combinations(POSSIBLE_EDGES, m):
             all_open = frozenset(range(m))
@@ -76,8 +100,10 @@ def main(output: Path) -> None:
 
                 active = frozenset().union(*admitted)
                 union_safe = not reaches_bad(chosen, active)
-                # A cut of universally zero edges exists exactly when the active
-                # union graph has no source-to-bad path.
+                cut_exists,checked=has_uniform_zero_cut(chosen,active)
+                source_side_sets_checked += checked
+                if cut_exists != union_safe:
+                    raise AssertionError('uniform-zero-cut characterization failed')
                 if direct_safe:
                     safe_families += 1
                     if union_safe:
@@ -98,6 +124,8 @@ def main(output: Path) -> None:
         'unsafe_families': unsafe_families,
         'uniform_cut_safe_families': uniform_cut_families,
         'signature_cover_only_safe_families': cover_only_families,
+        'source_side_sets_per_family': len(source_side_sets()),
+        'source_side_sets_checked': source_side_sets_checked,
         'checks': {
             'maximal_signature_characterization': 'PASS',
             'uniform_zero_cut_characterization': 'PASS',

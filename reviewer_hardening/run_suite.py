@@ -42,7 +42,8 @@ def random_case(seed:int):
             c["rhs"]=len(c["coeffs"])
         safe=False
     model={"name":f"rand_{seed}","variables":variables,"bounds":bounds,"nodes":nodes,"source":nodes[0],"bad":nodes[-1],"constraints":constraints,"edges":edges}
-    cert={"type":"path_budget","model":model["name"],"obligations":[{"path":[e["name"] for e in edges],"multipliers":{c["name"]:1 for c in constraints}}]}
+    cert={"type":"path_budget","model":model["name"],"witness":{v:0 for v in variables},
+          "obligations":[{"path":[e["name"] for e in edges],"multipliers":{c["name"]:1 for c in constraints}}]}
     return model,cert,safe
 
 def rename_case(model,cert):
@@ -53,6 +54,7 @@ def rename_case(model,cert):
     cmap={x["name"]:f"rc_{i}" for i,x in enumerate(reversed(m["constraints"]))}
     m["variables"]=[vmap[v] for v in m["variables"]]
     m["bounds"]={vmap[v]:b for v,b in m["bounds"].items()}
+    c["witness"]={vmap[v]:value for v,value in c["witness"].items()}
     m["nodes"]=[nmap[n] for n in m["nodes"]]; m["source"]=nmap[m["source"]]; m["bad"]=nmap[m["bad"]]
     for x in m["constraints"]:
         x["name"]=cmap[x["name"]]; x["coeffs"]={vmap[v]:a for v,a in x["coeffs"].items()}
@@ -118,7 +120,9 @@ def run_suite(output:Path):
         pb.check_certificate(model,cert); ipb.check(raw,cert)
         row={"n":n,"variables":2*n,"allowed_formula":3**n,"max_signatures_formula":2**n,"certificate_obligations":1,"certificate_multipliers":n}
         if n<=8:
-            o=pb.oracle(model,state_cap=3**n+1); ms=pb.max_signatures(model,state_cap=3**n+1)
+            # Enumeration budget counts the complete Boolean box (4^n), not only
+            # the admitted 3^n states.
+            o=pb.oracle(model,state_cap=4**n); ms=pb.max_signatures(model,state_cap=4**n)
             if o["allowed_states"]!=3**n or len(ms)!=2**n or not o["safe"]: raise AssertionError("separation oracle mismatch")
             row.update({"oracle_allowed":o["allowed_states"],"oracle_max_signatures":len(ms)})
         sep.append(row)
@@ -130,7 +134,8 @@ def run_suite(output:Path):
     results["separation"]["n4096_paths"]=got["paths"]
     # Integer-only safe case is deliberately outside rational path-budget completeness.
     iom=pb.make_integer_only_model(); io=pb.oracle(pb.parse_model(iom))
-    fake={"type":"path_budget","model":iom["name"],"obligations":[{"path":["e"],"multipliers":{"half":{"num":1,"den":2}}}]}
+    fake={"type":"path_budget","model":iom["name"],"witness":{"z":0},
+          "obligations":[{"path":["e"],"multipliers":{"half":{"num":1,"den":2}}}]}
     rejected=False
     try: pb.check_certificate(pb.parse_model(iom),fake)
     except Exception: rejected=True

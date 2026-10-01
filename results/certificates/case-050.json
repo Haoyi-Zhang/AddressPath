@@ -1,0 +1,9 @@
+{
+  "kind": "finite_cover",
+  "decision": "INCONSISTENT",
+  "witness": null,
+  "cover": [
+    2,
+    3
+  ]
+}

@@ -1,5 +1,5 @@
 {
   "schema": "architecture-provenance-v1",
-  "scope": "Commit-pinned source anchors for topology names only. No source is claimed to validate the synthetic evidence constraints.",
+  "scope": "Not applicable in the final packet: case labels are architecture-shaped synthetic motifs, not source-derived or commit-pinned topologies.",
   "sources": []
 }

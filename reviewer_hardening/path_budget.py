@@ -28,7 +28,13 @@ def q(value: Any) -> Q:
     if isinstance(value, str):
         return Q(value)
     if isinstance(value, Mapping) and set(value) == {"num", "den"}:
-        return Q(int(value["num"]), int(value["den"]))
+        num=value["num"]; den=value["den"]
+        if (not isinstance(num,int) or isinstance(num,bool) or
+                not isinstance(den,int) or isinstance(den,bool)):
+            raise ModelError("rational numerator and denominator must be exact integers")
+        if den == 0:
+            raise ModelError("rational denominator must be nonzero")
+        return Q(num, den)
     raise ModelError(f"unsupported rational value: {value!r}")
 
 
@@ -36,22 +42,32 @@ def qjson(value: Q) -> dict:
     return {"num": value.numerator, "den": value.denominator}
 
 
-def normalize_affine(obj: Mapping[str, Any], variables: Sequence[str]) -> tuple[dict[str,Q],Q]:
+def normalize_affine(obj: Mapping[str, Any], variables: Sequence[str] | set[str] | frozenset[str]) -> tuple[dict[str,Q],Q]:
     allowed = {"coeffs", "const"}
     if set(obj) - allowed:
         raise ModelError(f"unknown affine keys: {sorted(set(obj)-allowed)}")
     coeffs_raw = obj.get("coeffs", {})
     if not isinstance(coeffs_raw, Mapping):
         raise ModelError("coeffs must be an object")
-    if set(coeffs_raw) - set(variables):
+    variable_set = variables if isinstance(variables,(set,frozenset)) else set(variables)
+    if set(coeffs_raw) - variable_set:
         raise ModelError("affine expression mentions an unknown variable")
-    coeffs = {v: q(coeffs_raw.get(v, 0)) for v in variables}
+    coeffs = {}
+    for v,raw in coeffs_raw.items():
+        value=q(raw)
+        if value:
+            coeffs[v]=value
     return coeffs, q(obj.get("const", 0))
 
 
 def add_affine(a: tuple[dict[str,Q],Q], b: tuple[dict[str,Q],Q]) -> tuple[dict[str,Q],Q]:
     av, ac = a; bv, bc = b
-    return ({v: av.get(v,Q(0))+bv.get(v,Q(0)) for v in set(av)|set(bv)}, ac+bc)
+    out={}
+    for v in set(av)|set(bv):
+        value=av.get(v,Q(0))+bv.get(v,Q(0))
+        if value:
+            out[v]=value
+    return out, ac+bc
 
 
 def eval_affine(expr: tuple[dict[str,Q],Q], state: Mapping[str,int]) -> Q:
@@ -91,8 +107,9 @@ def parse_model(obj: Mapping[str,Any]) -> Model:
     variables = tuple(obj["variables"])
     if not variables or len(set(variables)) != len(variables) or not all(isinstance(v,str) and v for v in variables):
         raise ModelError("variables must be unique nonempty strings")
+    variable_set=set(variables)
     bounds_raw = obj["bounds"]
-    if set(bounds_raw) != set(variables):
+    if set(bounds_raw) != variable_set:
         raise ModelError("bounds must cover exactly the variables")
     bounds: dict[str,tuple[int,int]] = {}
     for v in variables:
@@ -115,7 +132,7 @@ def parse_model(obj: Mapping[str,Any]) -> Model:
         name=raw["name"]
         if not isinstance(name,str) or not name or name in names: raise ModelError("constraint names must be unique")
         names.add(name)
-        coeffs,const=normalize_affine({"coeffs":raw["coeffs"]},variables)
+        coeffs,const=normalize_affine({"coeffs":raw["coeffs"]},variable_set)
         if const: raise ModelError("constraint constant must be represented in rhs")
         constraints.append(Constraint(name,coeffs,q(raw["rhs"])))
     edges=[]; enames=set()
@@ -126,7 +143,7 @@ def parse_model(obj: Mapping[str,Any]) -> Model:
         enames.add(name)
         if raw["src"] not in nodes or raw["dst"] not in nodes or raw["src"]==raw["dst"]:
             raise ModelError("bad edge endpoints")
-        expr=normalize_affine(raw["open"],variables)
+        expr=normalize_affine(raw["open"],variable_set)
         edges.append(Edge(name,raw["src"],raw["dst"],expr))
     model=Model(obj["name"],variables,bounds,nodes,source,bad,tuple(constraints),tuple(edges))
     _topological_order(model)
@@ -154,16 +171,28 @@ def canonical_paths(model: Model, cap: int=4096) -> tuple[tuple[str,...],...]:
     for e in model.edges: outgoing[e.src].append(e)
     for es in outgoing.values(): es.sort(key=lambda e:e.name)
     paths: list[tuple[str,...]]=[]
-    stack: list[tuple[str,tuple[str,...]]]=[(model.source,tuple())]
+    # Iterative depth-first traversal with one mutable path avoids quadratic
+    # prefix copying on long chains while preserving deterministic order.
+    stack: list[tuple[str,int]]=[(model.source,0)]
+    current: list[str]=[]
     while stack:
-        node,prefix=stack.pop()
+        node,index=stack[-1]
         if node==model.bad:
-            paths.append(prefix)
+            paths.append(tuple(current))
             if len(paths)>cap: raise PathLimitExceeded(f"more than {cap} source-to-bad paths")
+            stack.pop()
+            if current: current.pop()
             continue
-        for e in reversed(outgoing[node]):
-            stack.append((e.dst,prefix+(e.name,)))
-    return tuple(sorted(paths))
+        edges=outgoing[node]
+        if index>=len(edges):
+            stack.pop()
+            if current: current.pop()
+            continue
+        edge=edges[index]
+        stack[-1]=(node,index+1)
+        current.append(edge.name)
+        stack.append((edge.dst,0))
+    return tuple(paths)
 
 
 def allowed_states(model: Model, cap: int=1_000_000) -> Iterable[dict[str,int]]:
@@ -175,7 +204,7 @@ def allowed_states(model: Model, cap: int=1_000_000) -> Iterable[dict[str,int]]:
         ranges.append(range(lo,hi+1))
     for values in product(*ranges):
         s=dict(zip(model.variables,values))
-        if all(sum((c.coeffs[v]*s[v] for v in model.variables),Q(0)) <= c.rhs for c in model.constraints):
+        if all(sum((coef*s[v] for v,coef in c.coeffs.items()),Q(0)) <= c.rhs for c in model.constraints):
             yield s
 
 
@@ -199,23 +228,66 @@ def oracle(model: Model, state_cap: int=1_000_000, path_cap: int=4096) -> dict:
         allowed+=1; total+=1
         sig=open_edges(model,s); signatures.add(tuple(sorted(sig)))
         if first_bad is None and unsafe_state(model,s,path_cap): first_bad=dict(s)
-    return {"allowed_states":allowed,"safe":first_bad is None,"first_bad":first_bad,
-            "signatures":len(signatures)}
+    decision=("INCONSISTENT" if allowed==0 else ("PROVED" if first_bad is None else "INSUFFICIENT"))
+    return {"allowed_states":allowed,"safe":allowed>0 and first_bad is None,"first_bad":first_bad,
+            "signatures":len(signatures),"decision":decision}
 
 
 def _path_affine(model: Model, path: Sequence[str]) -> tuple[dict[str,Q],Q]:
     emap={e.name:e for e in model.edges}
-    acc=({v:Q(0) for v in model.variables},Q(0))
+    coeffs: dict[str,Q]={}; const=Q(0)
     for name in path:
         if name not in emap: raise ModelError("certificate path mentions unknown edge")
-        acc=add_affine(acc,(dict(emap[name].open_expr[0]),emap[name].open_expr[1]))
-    return acc
+        edge=emap[name]; const+=edge.open_expr[1]
+        for variable,coefficient in edge.open_expr[0].items():
+            value=coeffs.get(variable,Q(0))+coefficient
+            if value: coeffs[variable]=value
+            else: coeffs.pop(variable,None)
+    return coeffs,const
 
+
+
+def _validate_indicator_syntax(model: Model) -> None:
+    """Require each non-enumerative edge indicator to be x or 1-x for a Boolean x."""
+    for edge in model.edges:
+        coeffs,const=edge.open_expr
+        nonzero=[(v,c) for v,c in coeffs.items() if c]
+        if len(nonzero)!=1:
+            raise ModelError(f"edge {edge.name} is not a syntactic Boolean indicator")
+        variable,coefficient=nonzero[0]
+        if model.bounds[variable] != (0,1):
+            raise ModelError(f"edge {edge.name} indicator variable is not Boolean-bounded")
+        if not ((coefficient==Q(1) and const==Q(0)) or
+                (coefficient==Q(-1) and const==Q(1))):
+            raise ModelError(f"edge {edge.name} must be x or 1-x")
+
+
+def _check_admitted_witness(model: Model, witness: Any) -> dict[str,int]:
+    if not isinstance(witness, Mapping) or set(witness)!=set(model.variables):
+        raise ModelError("witness must assign exactly all model variables")
+    state: dict[str,int]={}
+    for variable in model.variables:
+        value=witness[variable]
+        if not isinstance(value,int) or isinstance(value,bool):
+            raise ModelError("witness values must be exact integers")
+        lo,hi=model.bounds[variable]
+        if value<lo or value>hi:
+            raise ModelError("witness violates a declared bound")
+        state[variable]=value
+    for constraint in model.constraints:
+        lhs=sum((coef*state[v] for v,coef in constraint.coeffs.items()),Q(0))
+        if lhs>constraint.rhs:
+            raise ModelError("witness violates an accounting constraint")
+    # Also check the semantic Boolean value at the supplied admitted state.
+    open_edges(model,state)
+    return state
 
 def check_certificate(model: Model, certificate: Mapping[str,Any], path_cap: int=4096) -> dict:
-    if set(certificate)!={"type","model","obligations"}: raise ModelError("bad certificate schema")
+    if set(certificate)!={"type","model","witness","obligations"}: raise ModelError("bad certificate schema")
     if certificate["type"]!="path_budget" or certificate["model"]!=model.name:
         raise ModelError("certificate type or model mismatch")
+    _validate_indicator_syntax(model)
+    _check_admitted_witness(model,certificate["witness"])
     paths=canonical_paths(model,path_cap)
     obligations=certificate["obligations"]
     if not isinstance(obligations,list): raise ModelError("obligations must be a list")
@@ -233,13 +305,18 @@ def check_certificate(model: Model, certificate: Mapping[str,Any], path_cap: int
     for path in paths:
         if not path: raise ModelError("empty source-to-bad path is unsupported")
         target_coeffs,target_const=_path_affine(model,path)
-        combo={v:Q(0) for v in model.variables}; combo_rhs=Q(0)
+        combo={}; combo_rhs=Q(0)
         for name,raw_lam in by_path[path].items():
             if name not in cmap: raise ModelError("unknown constraint in multiplier map")
             lam=q(raw_lam)
             if lam<0: raise ModelError("multipliers must be nonnegative")
             c=cmap[name]
-            for v in model.variables: combo[v]+=lam*c.coeffs[v]
+            for v,coef in c.coeffs.items():
+                value=combo.get(v,Q(0))+lam*coef
+                if value:
+                    combo[v]=value
+                else:
+                    combo.pop(v,None)
             combo_rhs+=lam*c.rhs
         if combo != target_coeffs:
             raise ModelError(f"coefficient mismatch for path {path}")
@@ -258,7 +335,9 @@ def make_alternating_model(n: int, name: str|None=None) -> tuple[dict,dict]:
         edges.append({"name":f"e{i}_y","src":nodes[2*i+1],"dst":nodes[2*i+2],"open":{"coeffs":{y:1},"const":0}})
     model={"name":name or f"alternating_{n}","variables":variables,"bounds":bounds,"nodes":nodes,
            "source":nodes[0],"bad":nodes[-1],"constraints":constraints,"edges":edges}
-    cert={"type":"path_budget","model":model["name"],"obligations":[{
+    cert={"type":"path_budget","model":model["name"],
+          "witness":{v:0 for v in variables},
+          "obligations":[{
         "path":[e["name"] for e in edges],
         "multipliers":{f"pair_{i}":1 for i in range(n)}
     }]}

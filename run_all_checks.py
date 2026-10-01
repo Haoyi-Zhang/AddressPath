@@ -12,7 +12,12 @@ def run(cmd,cwd=HERE,timeout=1800):
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--output',type=Path,default=HERE/'full-reproduction'); ap.add_argument('--skip-core',action='store_true')
-    ns=ap.parse_args(); ns.output.mkdir(parents=True,exist_ok=True)
+    ns=ap.parse_args(); ns.output=(ns.output if ns.output.is_absolute() else HERE/ns.output).resolve()
+    ns.output.parent.mkdir(parents=True,exist_ok=True)
+    if ns.output.exists():
+        raise SystemExit(f'output already exists: {ns.output}')
+    if ns.skip_core:
+        ns.output.mkdir(parents=True)
     stages=[]
     if not ns.skip_core:
         for stage in ('core','tpeg-middle','tpeg-tail','validation'):
