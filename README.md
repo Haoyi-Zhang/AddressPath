@@ -111,7 +111,7 @@ The written general theorems are not machine checked. The checkers are ordinary 
 
 ## Provenance and license
 
-Generative-AI assistance was used in research design, formalization, code, synthetic data, experiments, analysis, validation, writing, and self-audit. The artifact itself invokes no model API. Human authors must inspect and accept responsibility for all content before external use and comply with the live publisher and venue policies.
+The executable experiments use deterministic conventional Python and make no external model calls.
 
 Newly authored code, documentation, and synthetic inputs are provided under the included MIT license to the extent applicable rights exist. External papers, publisher assets, and the Python runtime are not redistributed here; their locators and use are recorded in `external_resources.csv`.
 
