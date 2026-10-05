@@ -51,8 +51,14 @@ def make(model: Any) -> dict[str, Any]:
     sink_zero_status = 'PROVED' if feasible and sink_edges <= universal_zero else 'INCONSISTENT' if not feasible else 'INSUFFICIENT'
 
     if feasible == 0:
-        base = arithmetic_producer.make(compiled['base'])
-        if base['exact_status'] != 'INCONSISTENT' or base['certificate'] is None:
+        try:
+            base = arithmetic_producer.make(compiled['base'])
+            status, certificate = base['exact_status'], base['certificate']
+        except arithmetic_producer.Exhausted:
+            model = compiled['base']
+            A, b, c, q0 = arithmetic_producer.translate(model)
+            status, _witness, certificate, _count = arithmetic_producer.finite_cover(model, A, b, c, q0)
+        if status != 'INCONSISTENT' or certificate is None:
             raise AssertionError('no arithmetic inconsistency certificate')
         return {
             'exact_status': 'INCONSISTENT',
@@ -64,7 +70,7 @@ def make(model: Any) -> dict[str, Any]:
             'maximal_signatures': 0,
             'max_open_edges': 0,
             'uniform_zero_edges': len(universal_zero),
-            'certificate': {'kind': 'inconsistent', 'certificate': base['certificate']},
+            'certificate': {'kind': 'inconsistent', 'certificate': certificate},
         }
 
     if unsafe:

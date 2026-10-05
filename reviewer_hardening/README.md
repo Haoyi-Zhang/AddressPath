@@ -1,7 +1,14 @@
-# Reviewer-hardening checks
+# Binary-affine path-budget backend
 
 This directory adds a compact, exact-arithmetic path-budget certificate and a
-second implementation that does not import the production checker.  Run:
+second implementation that does not import the production checker.
+
+This is a separate named-variable, single-bad-vertex interface. Every edge
+indicator must be exactly `x` or `1-x` on a Boolean-bounded coordinate. No general
+TPEG residual-threshold adapter is supplied; the main TPEG dispatcher accepts
+only its documented uniform-cut, signature-cover and inconsistency envelopes.
+
+Run:
 
 ```bash
 python3 run_suite.py --output results
@@ -16,3 +23,9 @@ incompleteness witness, mutation rejection, and a fail-closed path cap.
 The holdout split is a robustness check, not a preregistered experiment.  No
 model parameters are trained; the relevant risk is benchmark-specific logic,
 not statistical overfitting in the machine-learning sense.
+
+The retained suite runs both finite oracles on all 700 models and both
+certificate checkers on the 391 safe cases. Its 309 `unsafe_rejected` cases
+record the first checker's rejection, not both checkers' systematic negative
+coverage. Separate regression tests exercise a representative negative with
+both checkers.

@@ -123,6 +123,26 @@ The local arithmetic checker supports four kinds:
 
 See `src/checker.py` and `proofs.md` for exact identities. The checker never trusts a numeric objective value supplied by the producer.
 
+## Separate binary-affine path-budget backend
+
+`reviewer_hardening/path_budget.py` and `independent_path_budget.py` consume a
+different named-variable graph with one bad vertex. Each edge's `open` affine
+expression must be exactly `x` or `1-x`, with that coordinate bounded by `[0,1]`.
+It is therefore Boolean and equals the edge-open indicator. A general TPEG
+residual opens on positivity; its threshold indicator need not be affine. No
+adapter from arbitrary residuals is supplied, and `src/tpeg_checker.py` does not
+dispatch a `path_budget` envelope.
+
+The separate certificate has exactly `type`, `model`, `witness`, and
+`obligations`; `type` is `path_budget`, `model` matches the supplied model name,
+and the admitted integer witness assigns all named variables. Each obligation
+contains `path` and nonnegative rational `multipliers` keyed by constraint name.
+Obligations must equal the complete canonical source-to-bad path set, subject
+to the 4,096-path cap. Their weighted affine coefficients must match the sum of
+declared edge indicators; that sum's constant plus the weighted right-hand side
+must be at most the path length minus one. Exact witness, coefficient, path and
+indicator checks are required. See the backend source for its graph schema.
+
 ## Result files
 
 `run_tpeg_cases.py` writes one JSON result per model. Timing fields are measurements, not certificate inputs. `INSUFFICIENT` files contain only aggregate unsafe-state counts and no path or state witness. Certificate JSON is stored separately under `tpeg_results/certificates/` only for `PROVED` and `INCONSISTENT` decisions.
