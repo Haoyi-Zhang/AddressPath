@@ -168,7 +168,22 @@ def _topological_order(model: Model) -> tuple[str,...]:
 def canonical_paths(model: Model, cap: int=4096) -> tuple[tuple[str,...],...]:
     if cap < 1: raise ModelError("path cap must be positive")
     outgoing: dict[str,list[Edge]]={n:[] for n in model.nodes}
-    for e in model.edges: outgoing[e.src].append(e)
+    incoming: dict[str,list[str]]={n:[] for n in model.nodes}
+    for e in model.edges:
+        incoming[e.dst].append(e.src)
+    # A completed-bad-path cap cannot bound traversal through a dead diamond
+    # family. Prune vertices that cannot reach bad before expanding prefixes.
+    live={model.bad}; pending=[model.bad]
+    while pending:
+        node=pending.pop()
+        for parent in incoming[node]:
+            if parent not in live:
+                live.add(parent); pending.append(parent)
+    if model.source not in live:
+        return ()
+    for e in model.edges:
+        if e.dst in live:
+            outgoing[e.src].append(e)
     for es in outgoing.values(): es.sort(key=lambda e:e.name)
     paths: list[tuple[str,...]]=[]
     # Iterative depth-first traversal with one mutable path avoids quadratic

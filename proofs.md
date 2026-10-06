@@ -55,9 +55,9 @@ Let `C` be a declared set of concrete epochs and `Iso(τ)` the concrete ownershi
 
 The implementation cannot check these processor-specific premises. They are part of the model contract. `INSUFFICIENT` does not establish a concrete violation because the open abstract path may be spurious.
 
-**Proposition 3 (extension non-monotonicity).** A proof for `G` need not survive adding a source-to-bad path. It survives only if every added path is blocked in every admitted state or is excluded by concrete scope.
+**Proposition 3 (extension non-monotonicity).** A proof for `G` need not survive adding a source-to-bad path. With admitted states and old residuals unchanged, the extended model is safe exactly when every source-to-bad path using an added edge is blocked in every admitted state. Concrete scope exclusions restrict the lifting premises; they do not change that abstract decision.
 
-**Proof.** Add a direct source-to-bad edge with constant residual one. The admitted set is unchanged but every admitted state becomes unsafe. The converse follows from path reachability. ∎
+**Proof.** Add a direct source-to-bad edge with constant residual one. The admitted set is unchanged but every admitted state becomes unsafe. Every extended bad path is either old and already blocked, or uses an added edge. Blocking all latter paths is therefore sufficient; extended safety also makes it necessary. ∎
 
 This is the formal reason that path completeness is a separate obligation.
 
@@ -150,11 +150,13 @@ Path safety is downward closed under edge deletion.
 
 **Proof.** Each finite signature `σ∈Σ` is contained in at least one inclusion-maximal member `τ∈Max(Σ)`. Safety of `τ` and Lemma 6 imply safety of `σ`. ∎
 
-**Theorem 8 (bounded exactness).** For the declared finite grid, a certificate that lists exactly `Max(Σ)` and checks every listed signature safe exists if and only if the exact TPEG decision is `PROVED`.
+**Theorem 8 (bounded certificate-language exactness).** For the declared finite grid, an accepted structured certificate that lists exactly `Max(Σ)` and checks every listed signature safe exists if and only if the exact TPEG decision is `PROVED`.
 
 **Proof.** Soundness is Theorem 7 plus the admitted witness. If the exact decision is `PROVED`, the finite family `Σ` is nonempty and every member is safe, so its finite maximal antichain exists and is a valid certificate. ∎
 
 The checker re-enumerates the entire grid and requires equality with the exact maximal antichain; it does not accept an arbitrary safe cover. It recomputes canonical reachability for every listed signature. This choice reduces trust in the producer at the cost of exponential worst-case work.
+
+The theorem is about structured certificate objects, not byte-limited command-line loading. The JSON loader retains an independent 8 MiB cap. To see the distinction, take 12 independent alternating two-edge paths (24 edges) and 40 constant-open edges in a ten-vertex component unreachable from the source. The graph has 64 edges, 24 vertices and 4,096 safe states. Every signature contains one edge from each pair plus the 40 common edges, so the 4,096 distinct signatures all have cardinality 52 and are maximal. Legal 48-character ASCII edge identifiers require at least `4096 * 52 * 50 = 10,649,600` bytes for the quoted open identifiers alone. No exact JSON cover fits the 8 MiB cap. The finite proof language remains complete; serialized admission, output size and time limits can still withhold a result.
 
 ## 7. Exponential exact-cover family
 
@@ -175,11 +177,11 @@ The bounded producer enumerates every state in the declared box, computes the ad
 - If all admitted states are safe and deleting universally closed edges separates source from bad, it returns a uniform-cut certificate.
 - Otherwise it returns the exact maximal-signature cover.
 
-**Proposition 10.** Subject to the parser and 4,096-state bounds and successful local arithmetic-certificate construction, the producer returns the exact three-way decision, and every positive decision has a checker-accepted certificate.
+**Proposition 10.** Subject to the structural parser and 4,096-state bounds and successful local arithmetic-certificate construction, the producer returns the exact three-way decision, and every `PROVED` or `INCONSISTENT` decision has a checker-accepted structured certificate.
 
 **Proof.** Exhaustive enumeration gives the exact admitted and unsafe sets. Theorem 5 is complete for uniform cuts. Theorem 8 supplies the fallback for every remaining safe finite model. Inconsistency is handled separately. ∎
 
-The proposition concerns the bounded model only. It does not establish scalability beyond the declared limits.
+The proposition concerns the bounded model and structured certificate rule only. It does not establish scalability beyond the declared limits or completeness of byte-limited file loading.
 
 ## 9. Independent finite checks
 
@@ -194,3 +196,15 @@ These finite checks can expose implementation or statement mismatches. They do n
 ## 10. What is not proved
 
 The repository does not prove that any real performance counter is complete, that a supplied TPEG covers all processor paths, that an observation belongs to one request epoch, that a model is empirically accurate, or that a deployed processor satisfies a relational confidentiality property. It proves only the declared bounded graph property, and the concrete lifting theorem remains conditional on explicit refinement premises.
+
+## 11. Path-enumeration pruning
+
+In the separate binary-affine path-budget backend, let `L` be the vertices from which the bad vertex is structurally reachable. The two implementations compute `L` by reverse reachability and reverse topological propagation, respectively, before enumerating source-to-bad paths.
+
+**Lemma 11 (dead-suffix pruning).** Retaining only edges whose head belongs to `L` preserves the complete canonical source-to-bad path set.
+
+**Proof.** Every vertex of a source-to-bad path has its remaining suffix to the bad vertex, so every edge head on that path lies in `L`. No such path is removed. Conversely, a path in the retained graph is an original path. Thus both path sets, and their canonical order under the unchanged edge ordering, agree. If the source is not in `L`, the path set is empty. ∎
+
+After pruning, every expanded source prefix can extend to a bad path in the DAG. The number of distinct prefixes is at most the sum of the lengths of the emitted bad paths (or of the first cap-plus-one paths before rejection). This bounds enumeration by the explicit path output rather than by unrelated paths to dead ends. Preprocessing and deterministic adjacency ordering remain polynomial in the declared graph. The 4,096-path cap is still enforced on complete bad paths, not on a truncated sample.
+
+The TPEG reachability routine separately builds adjacency once and visits each reachable vertex and enabled edge once; canonical sorting of the returned vertices has an additional sorting cost. Neither optimization changes arithmetic obligations, admitted states, signatures, or non-vacuity checks.

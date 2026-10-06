@@ -87,14 +87,18 @@ def _box_minimum(form: tuple[list[F], F], bounds: list[tuple[int, int]]) -> F:
 
 
 def _structural_reachable(source: int, edges: list[dict[str, Any]], enabled: set[str]) -> list[int]:
+    outgoing: dict[int, list[int]] = {}
+    for edge in edges:
+        if edge['id'] in enabled:
+            outgoing.setdefault(edge['tail'], []).append(edge['head'])
     reached = {source}
-    changed = True
-    while changed:
-        changed = False
-        for edge in edges:
-            if edge['id'] in enabled and edge['tail'] in reached and edge['head'] not in reached:
-                reached.add(edge['head'])
-                changed = True
+    pending = [source]
+    while pending:
+        vertex = pending.pop()
+        for head in outgoing.get(vertex, ()):
+            if head not in reached:
+                reached.add(head)
+                pending.append(head)
     return sorted(reached)
 
 

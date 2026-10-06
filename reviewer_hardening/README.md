@@ -20,6 +20,11 @@ metamorphic tests, exact small-state oracles, an exponential representation
 separation, a 4,096-pair non-enumerative scaling check, an integer-only
 incompleteness witness, mutation rejection, and a fail-closed path cap.
 
+Both path enumerators first discard vertices that cannot reach the bad vertex.
+This preserves all bad paths while avoiding expansion of exponentially many
+irrelevant dead-end prefixes. The complete-bad-path cap is unchanged. Focused
+traversal regressions are in `../tests/test_path_enumeration.py`.
+
 The holdout split is a robustness check, not a preregistered experiment.  No
 model parameters are trained; the relevant risk is benchmark-specific logic,
 not statistical overfitting in the machine-learning sense.

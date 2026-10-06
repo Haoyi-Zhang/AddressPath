@@ -80,6 +80,12 @@ A `signature_cover` certificate provides:
 
 The signature checker re-enumerates every admitted state and recomputes the exact maximal antichain. This makes the proof form sound and complete for the declared bounded model but intentionally exponential in the worst case. `INCONSISTENT` has a separate arithmetic contradiction certificate. `INSUFFICIENT` carries no proof certificate and exposes only aggregate counts.
 
+Completeness is for structured certificate objects. The JSON loader also imposes
+an 8 MiB file cap; a structurally legal 4,096-state safe model can require a cover
+larger than that cap. File admission therefore can reject a model's exact cover
+even when the finite certificate rule is complete. The size construction and
+its lower bound are given in `proofs.md`; no file-size guard has been removed.
+
 ## Repository map
 
 - `src/tpeg_checker.py` - strict TPEG certificate checker.
@@ -135,14 +141,33 @@ The artifact proves only the finite-model statements encoded by its inputs and c
 
 ## Reviewer-hardening gate
 
-Run `python3 run_all_checks.py --output full-reproduction` for the original staged reproduction plus the independent architecture cases, compact-certificate mutation tests, provenance audit, SMT-LIB export, compactness benchmark, claim/evidence matrix, and venue-readiness checks. The architecture cases use architecture-shaped synthetic graph patterns and synthetic evidence; they are not silicon validation.
+In the complete project tree, `python3 run_all_checks.py --output full-reproduction` runs the original staged reproduction plus the independent architecture cases, compact-certificate mutation tests, provenance audit, SMT-LIB export, compactness benchmark, claim/evidence matrix, and checks of the packaged venue records. This entry point also requires the companion `paper/` tree; it is not the flat standalone repository route. The architecture cases use architecture-shaped synthetic graph patterns and synthetic evidence; they are not silicon validation.
 
 ## One-command clean reproduction
 
 ```bash
-python3 final_reproduce.py --output reproduction-final
+python3 final_reproduce.py --keep --output reproduction
 ```
 
-The driver removes a stale output directory by default, invokes every legacy
-reproduction stage, and then runs the independent reviewer-hardening suite.
-Use `--keep` to fail rather than remove an existing output directory.
+This flat-repository entry point invokes every legacy reproduction stage,
+the independent reviewer-hardening suite, architecture/path-budget tests, and
+ten additional traversal, gate-dispatch and signature-file regression methods. The shown
+`--keep` invocation refuses an existing output directory. Without `--keep`,
+the driver removes that directory after validating its repository-local path.
+
+The additional methods are separate from the retained 74-method/289-call
+mutation campaign. They check dead-end branch pruning, unchanged live-path
+caps, one-scan reachability, and preservation of both validation gates for
+explicit `--stage all`, plus the distinction between certificate-language
+completeness and byte-limited file loading. Their results do not replace historical Linux timing
+or memory measurements. They can also be run directly:
+
+```bash
+python3 -B -m unittest -v tests/test_path_enumeration.py tests/test_reproduction_gates.py tests/test_signature_loading.py
+```
+
+The scientific workflow runs this owned finite workload from the flat repository
+root on Ubuntu 24.04 with one pinned CPU, a 2 GiB address-space limit, a
+20-minute whole-run wall timeout, and raw-output upload even on failure. It does
+not build the paper, execute external applications, or validate processor-specific
+refinement premises.

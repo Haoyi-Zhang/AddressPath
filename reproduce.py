@@ -12,6 +12,6 @@ for i,a in enumerate(sys.argv[1:]):
         stage=sys.argv[1:][i+1]
     elif a.startswith('--stage='):
         stage=a.split('=',1)[1]
-if stage in (None,'validation'):
+if stage in (None,'all','validation'):
     subprocess.run([sys.executable,str(HERE/'tools'/'verify_research_records.py')],cwd=HERE,check=True)
     subprocess.run([sys.executable,str(HERE/'tools'/'final_code_audit.py')],cwd=HERE,check=True)

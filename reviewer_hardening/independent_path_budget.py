@@ -45,6 +45,16 @@ def _dag_paths(m,limit=4096):
             indeg[e["dst"]]-=1
             if indeg[e["dst"]]==0: q.append(e["dst"]); q.sort()
     if len(seen)!=len(nodes): raise IndependentError("cycle")
+    # Reverse topological propagation removes dead suffixes without expanding
+    # their (potentially exponential) source-to-dead-end prefixes.
+    live={bad}
+    for n in reversed(seen):
+        if any(e["dst"] in live for e in adj[n]):
+            live.add(n)
+    if source not in live:
+        return (),edge_by_name
+    for n in adj:
+        adj[n]=[e for e in adj[n] if e["dst"] in live]
     paths=[]; stack=[(source,0)]; current=[]
     while stack:
         n,index=stack[-1]

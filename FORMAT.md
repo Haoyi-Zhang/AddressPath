@@ -2,6 +2,8 @@
 
 The checker accepts strict UTF-8 JSON. Duplicate keys, floating-point literals, non-finite values, missing fields, and unexpected fields are rejected. Integers are JSON integers. Rational values are either JSON integers or strings of the form `numerator/positive-denominator`; decimal strings are not accepted.
 
+Each loaded model or certificate file is capped at 8 MiB. Exact-cover completeness applies to structured certificate objects under the finite model/structural limits, not to every JSON serialization admitted by this additional byte cap. Some legal safe models require exact cover files larger than the cap; they are rejected rather than sampled or truncated. See the certificate-size boundary in `proofs.md`.
+
 ## Model envelope
 
 A TPEG model has exactly four top-level fields:

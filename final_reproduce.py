@@ -77,6 +77,10 @@ def main():
     cmd=[sys.executable,"-m","unittest","-v","reviewer_hardening/test_path_budget.py"]
     timings["path_budget_tests"]=run(cmd,ROOT,out.parent/f"{out.name}.path_budget_tests.log")
     commands.append(cmd)
+    for name in ("path_enumeration", "reproduction_gates", "signature_loading"):
+        cmd=[sys.executable,"-m","unittest","-v",f"tests/test_{name}.py"]
+        timings[name+"_tests"]=run(cmd,ROOT,out.parent/f"{out.name}.{name}_tests.log")
+        commands.append(cmd)
     summary={"status":"PASS","root":str(ROOT),"output":str(out),"timings_seconds":timings,
              "commands":[[str(x) for x in c] for c in commands],"python":sys.version}
     (out/"final_reproduction_summary.json").write_text(json.dumps(summary,indent=2,sort_keys=True)+"\n")
