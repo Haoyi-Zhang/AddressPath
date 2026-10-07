@@ -34,6 +34,9 @@ jobs:
           timeout --signal=TERM --kill-after=15s 1200s \
             taskset -c "$cpu" python -B final_reproduce.py \
               --keep --output reproduction 2>&1 | tee scientific-checks.log
+      - name: Exact signature-set regressions
+        run: |
+          timeout 180s python -B -m unittest -v tests/test_signature_sets.py
       - name: Upload raw results on success or failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

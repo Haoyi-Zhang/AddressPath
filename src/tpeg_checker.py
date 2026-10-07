@@ -270,9 +270,11 @@ def _verify_signature_cover(compiled: dict[str, Any], cert: dict[str, Any]) -> s
             admitted_signatures.add(_signature(compiled, state))
     if not admitted_signatures:
         raise Invalid('signature cover cannot prove an inconsistent model')
+    # Independently prepare local immutable views after complete enumeration.
+    signature_sets = {sig: frozenset(sig) for sig in admitted_signatures}
     maximal = sorted(
         sig for sig in admitted_signatures
-        if not any(set(sig) < set(other) for other in admitted_signatures)
+        if not any(signature_sets[sig] < other for other in signature_sets.values())
     )
     if supplied != maximal:
         raise Invalid('certificate must list exactly the maximal admitted signatures')

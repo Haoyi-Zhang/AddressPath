@@ -80,6 +80,20 @@ A `signature_cover` certificate provides:
 
 The signature checker re-enumerates every admitted state and recomputes the exact maximal antichain. This makes the proof form sound and complete for the declared bounded model but intentionally exponential in the worst case. `INCONSISTENT` has a separate arithmetic contradiction certificate. `INSUFFICIENT` carries no proof certificate and exposes only aggregate counts.
 
+Producer and checker each prepare their own instance-local immutable signature
+sets after complete enumeration, retaining the original tuples for canonical
+output. This avoids rebuilding sets inside every maximality comparison; it does
+not reduce state enumeration, change caps or counters, share a trusted helper,
+or establish a measured speedup. The separate portable regression is:
+
+```bash
+python3 -B -m unittest -v tests/test_signature_sets.py
+```
+
+It includes literal tiny-family and affine references, negative/cap checks and
+the six retained signature covers. It is not added to the historical
+74-method/289-call measurement harness; those archived totals are unchanged.
+
 Completeness is for structured certificate objects. The JSON loader also imposes
 an 8 MiB file cap; a structurally legal 4,096-state safe model can require a cover
 larger than that cap. File admission therefore can reject a model's exact cover

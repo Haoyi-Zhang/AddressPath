@@ -114,9 +114,11 @@ def make(model: Any) -> dict[str, Any]:
             'certificate': cert,
         }
 
+    # Local immutable views only: retain the enumerated tuples for output order.
+    signature_sets = {sig: frozenset(sig) for sig in signatures}
     maximal = sorted(
         sig for sig in signatures
-        if not any(set(sig) < set(other) for other in signatures)
+        if not any(signature_sets[sig] < other for other in signature_sets.values())
     )
     cert = {
         'kind': 'signature_cover',
