@@ -5,7 +5,7 @@
   "feasible_states": 2,
   "unsafe_states": 1,
   "distinct_signatures": 2,
-  "maximal_signatures": 0,
+  "maximal_signatures": 1,
   "max_open_edges": 1,
   "uniform_zero_edges": 0,
   "id": "tpeg-014",

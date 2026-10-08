@@ -93,6 +93,7 @@ def real_records():
         assert result['feasible_states'] == len(admitted)
         assert result['unsafe_states'] == bad
         assert result['distinct_signatures'] == len(family)
+        assert result['maximal_signatures'] == len(literal_maxima(family))
         assert result['max_open_edges'] == max(map(len, family), default=0)
         assert result['uniform_zero_edges'] == sum(
             not any(e['id'] in sig for sig in family) for e in model['graph']['edges'])
@@ -137,6 +138,7 @@ def tiny_families():
             if produced is not None:
                 assert produced['feasible_states'] == len(family)
                 assert produced['unsafe_states'] == int(bad)
+                assert produced['maximal_signatures'] == len(literal_maxima(family))
                 if not bad:
                     assert produced['certificate'] == cert
             records.append({'family': [list(s) for s in family], 'checker': checked, 'producer': produced})

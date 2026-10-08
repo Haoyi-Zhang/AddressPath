@@ -6,6 +6,7 @@ not a new LP algorithm. It never emits a property-violating state.
 from fractions import Fraction as Q
 from itertools import combinations, product
 from math import gcd, lcm
+import checker
 
 class Exhausted(RuntimeError):
     pass
@@ -136,6 +137,16 @@ def make(model,cap=20000):
             num=gcd(*(abs(int(v*den)) for v in vals)); delta=Q(num,den)
             if delta and bound<delta:
                 quantized='PROVED';cert={'kind':'quantized','witness':witness,'multipliers':[serial(v) for v in lam]}
+    # A compact arithmetic proposal must satisfy the receiver's literal budget.
+    # Compiled coefficients can be wider than the permitted certificate inputs.
+    if cert is not None:
+        try:
+            checked = checker.verify(model, cert)
+        except checker.Invalid:
+            cert = None
+        else:
+            if checked != status:
+                raise AssertionError('certificate decision disagrees with finite semantics')
     # Exhaustive fallback is clearly distinguished from the dual proof.
     if cert is None and status!='INSUFFICIENT': cert=cover
     return {'exact_status':status,'linear_status':linear,'quantized_status':quantized,

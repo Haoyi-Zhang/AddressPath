@@ -50,6 +50,12 @@ def make(model: Any) -> dict[str, Any]:
     universal_zero = compiled['edge_ids'] - set().union(*(set(s) for s in signatures)) if signatures else set(compiled['edge_ids'])
     sink_zero_status = 'PROVED' if feasible and sink_edges <= universal_zero else 'INCONSISTENT' if not feasible else 'INSUFFICIENT'
 
+    signature_sets = {sig: frozenset(sig) for sig in signatures}
+    maximal = sorted(
+        sig for sig in signatures
+        if not any(signature_sets[sig] < other for other in signature_sets.values())
+    )
+
     if feasible == 0:
         try:
             base = arithmetic_producer.make(compiled['base'])
@@ -67,7 +73,7 @@ def make(model: Any) -> dict[str, Any]:
             'feasible_states': 0,
             'unsafe_states': 0,
             'distinct_signatures': 0,
-            'maximal_signatures': 0,
+            'maximal_signatures': len(maximal),
             'max_open_edges': 0,
             'uniform_zero_edges': len(universal_zero),
             'certificate': {'kind': 'inconsistent', 'certificate': certificate},
@@ -81,7 +87,7 @@ def make(model: Any) -> dict[str, Any]:
             'feasible_states': feasible,
             'unsafe_states': unsafe,
             'distinct_signatures': len(signatures),
-            'maximal_signatures': 0,
+            'maximal_signatures': len(maximal),
             'max_open_edges': max_open,
             'uniform_zero_edges': len(universal_zero),
             'certificate': None,
@@ -108,18 +114,13 @@ def make(model: Any) -> dict[str, Any]:
             'feasible_states': feasible,
             'unsafe_states': 0,
             'distinct_signatures': len(signatures),
-            'maximal_signatures': 1,
+            'maximal_signatures': len(maximal),
             'max_open_edges': max_open,
             'uniform_zero_edges': len(universal_zero),
             'certificate': cert,
         }
 
     # Local immutable views only: retain the enumerated tuples for output order.
-    signature_sets = {sig: frozenset(sig) for sig in signatures}
-    maximal = sorted(
-        sig for sig in signatures
-        if not any(signature_sets[sig] < other for other in signature_sets.values())
-    )
     cert = {
         'kind': 'signature_cover',
         'witness': witness,
