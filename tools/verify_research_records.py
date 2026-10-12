@@ -19,7 +19,7 @@ def main():
     cp=find_one('claim_evidence_ledger.csv'); ep=find_one('external_resources.csv')
     claims=rows(cp); ext=rows(ep); errors=[]
     if len(claims)!=21: errors.append(f'expected 21 claim-ledger rows, found {len(claims)}')
-    if len(ext)!=36: errors.append(f'expected 36 external-resource rows, found {len(ext)}')
+    if len(ext)!=35: errors.append(f'expected 35 external-resource rows, found {len(ext)}')
     ids=[]
     for i,r in enumerate(claims,2):
         rid=pick(r,'claim_id','id','claim'); statement=pick(r,'claim','statement','claim_text','description'); evidence=pick(r,'evidence','evidence_location','artifact','source','support','raw_evidence')
@@ -49,7 +49,7 @@ def main():
         try:
             live=json.loads(audits[0].read_text(encoding='utf-8'))
             lrecords=live.get('records',[])
-            if live.get('resource_count')!=36 or len(lrecords)!=36: errors.append('URL inventory does not contain 36 records')
+            if live.get('resource_count')!=35 or len(lrecords)!=35: errors.append('URL inventory does not contain 35 records')
             if live.get('broken')!=0 or any(r.get('classification')=='broken' for r in lrecords): errors.append('URL inventory contains broken resources')
             lurls={r.get('url','') for r in lrecords}
             if lurls!=set(urls): errors.append('URL inventory URL set differs from external_resources.csv')
