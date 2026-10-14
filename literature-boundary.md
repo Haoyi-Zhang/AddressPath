@@ -20,18 +20,20 @@ or modified.
 
 ## Quantifier and contribution boundary
 
-CounterPoint asks whether a noisy observation region is compatible with a
-candidate microarchitectural model and uses feasibility to refute or refine
-assumptions.  A nonempty feasible set is existential.  The TPEG property is
+CounterPoint tests whether a noisy counter confidence region intersects the
+cone of an expert-supplied microarchitectural model.  Disjointness refutes the
+model at the selected confidence level; intersection establishes only
+feasibility, not universal safety.  The TPEG property is
 universal over all admitted states and additionally requires that every
 in-scope concrete violation induce an open source-to-bad path.  CounterPoint's
 empirical cases, decision diagrams, and counter measurements are not copied or
 reproduced here, and this project does not claim that CounterPoint endorses the
 lifting theorem.
 
-The local rational implication rule is classical Farkas/linear-programming
-reasoning.  The strict integer-quantum rule is also a small, familiar integer
-reasoning step.  VIPR and later certificate-construction work establish much
+Farkas/linear-programming results provide mathematical background for the local
+rational implication rule, not a proof of this checker's full finite or integer
+certificate system.  The strict integer-quantum rule is also a small, familiar
+integer reasoning step.  VIPR and later certificate-construction work establish much
 stronger general integer-programming proof systems.  Neither a separate checker
 nor an integer threshold is claimed as the contribution.  The contribution is
 the architecture-facing decomposition into evidence coverage, violation-to-path
@@ -50,15 +52,17 @@ interpolant, or other proof systems.
 
 ## Architecture and security boundary
 
-PipeCheck, COATCheck, RTLCheck, and RTL2MμPATH connect architectural obligations
-to microarchitectural or RTL behavior.  They are not replaced by TPEG.  Their
-kind of model derivation can help discharge the path-coverage and event-binding
-premises that the present artifact intentionally leaves outside the checker.
+PipeCheck, COATCheck, and RTLCheck connect architectural obligations to
+microarchitectural or RTL behavior; RTL2MμPATH derives instruction-level
+microarchitectural paths from RTL.  TransForm specifies VM-aware transistency
+and synthesizes enhanced litmus tests.  None is replaced by TPEG or alone
+establishes this project's translation-path coverage and counter-event binding
+premises, which remain outside the checker.
 An omitted path, an incorrect event binding, or an epoch outside the observation
 scope invalidates concrete lifting even if the finite certificate is accepted.
 
 Hardware–software contract and hyperproperty work establishes relational
-security objectives that are stronger and semantically different from the
+security objectives that are semantically different from the
 single-epoch ownership-path safety assertion checked here.  The manuscript does
 not claim confidentiality, integrity, noninterference, timing-channel freedom,
 correct page-table contents, or a security verdict for any deployed processor.
