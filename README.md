@@ -142,6 +142,13 @@ Newly authored code, documentation, and synthetic inputs are provided under the 
 
 The four-stage reproduction above includes the following validation gates.
 
+The separate non-enumerative audit regression checks report structure, rejecting
+static-code guards, and the full-project bibliography guard:
+
+```bash
+python3 -B -m unittest discover -s tests -p test_audit_metadata.py -v
+```
+
 The `validation` stage also runs `tools/verify_research_records.py` and `tools/final_code_audit.py`. These checks validate the 21-row claim/evidence ledger, the 35-row external-resource ledger and its exact packaged URL inventory, strict JSON/CSV parsing, absence of network-capable imports and dynamic execution, archive hygiene, and Python syntax. The URL inventory is an offline correspondence check; it does not claim that every endpoint was reachable during the final clean build, and it does not prove the correctness of third-party content.
 
 An additional non-default determinism exercise reran all four stages under `PYTHONHASHSEED=12345`; all JSON/CSV/TeX outputs agreed after removing runtime-only timing and memory fields. Its machine-readable record is `audit/hash-seed-determinism.json`.

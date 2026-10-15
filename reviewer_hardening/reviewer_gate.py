@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, ast, csv, hashlib, json, os, re, subprocess, sys
+import argparse, ast, csv, json, os, re, subprocess, sys
 from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
@@ -12,8 +12,6 @@ def run(cmd,cwd=HERE,timeout=600):
     if p.returncode:
         raise RuntimeError(f"command failed ({p.returncode}): {' '.join(map(str,cmd))}\n{p.stdout}")
     return p.stdout
-
-def sha(p:Path)->str: return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def check_import_independence():
     p=HERE/'verify_architecture_cases.py'; tree=ast.parse(p.read_text())
@@ -215,7 +213,6 @@ def main():
       'provenance_records':prov[0],'provenance_anchors':prov[1],
       'independent_oracle_imports':imports,'claim_evidence_rows':claims,'venue_sources':venue,'bibliography_audit':bib,
       'path_budget_inventory':core,'path_budget_semantic_audit':pb,'benchmark_manifest':bench,'validation_environment':env,'static_code_audit':static,'smt_validation':smt,'path_count_boundary':pathcap,'path_budget_scaling':scaling,'paper_source_check':paper,'paper_reconcile_tail':paper_run,
-      'files':{p.name:sha(p) for p in sorted(HERE.iterdir()) if p.is_file() and p.name not in {ns.output.name}}
     }
     ns.output.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
     print(json.dumps({'status':'PASS','architecture_cases':arch['case_count'],'claim_rows':claims,'provenance_anchors':prov[1]},sort_keys=True))

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import ast,hashlib,json
+import ast,json
 from pathlib import Path
 HERE=Path(__file__).resolve().parent; A=HERE.parent
 records=[]; forbidden=[]
@@ -22,7 +22,7 @@ for p in sorted(A.rglob('*.py')):
                 if kw.arg=='shell' and isinstance(kw.value,ast.Constant) and kw.value.value is True:
                     forbidden.append(f'{p}: subprocess shell=True')
     if any(i.split('.')[0] in {'pickle','marshal','dill'} for i in imports): forbidden.append(f'{p}: unsafe serialization import')
-    records.append({'path':str(p.relative_to(A)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'imports':sorted(set(imports))})
+    records.append({'path':str(p.relative_to(A)),'bytes':p.stat().st_size,'imports':sorted(set(imports))})
 if forbidden: raise AssertionError(forbidden)
 out={'schema':'static-code-audit-v1','status':'PASS','python_files':len(records),'total_bytes':sum(r['bytes'] for r in records),'forbidden_constructs':forbidden,'files':records}
 (HERE/'static_code_audit.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')

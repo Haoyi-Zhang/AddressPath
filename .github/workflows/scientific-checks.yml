@@ -37,6 +37,9 @@ jobs:
       - name: Exact signature-set regressions
         run: |
           timeout 180s python -B -m unittest -v tests/test_signature_sets.py
+      - name: Non-enumerative audit metadata and bibliography guards
+        run: |
+          timeout 60s python -B -m unittest discover -s tests -p test_audit_metadata.py -v
       - name: Upload raw results on success or failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

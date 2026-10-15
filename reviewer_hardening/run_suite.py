@@ -17,9 +17,6 @@ def dump(path,obj):
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(json.dumps(obj,indent=2,sort_keys=True)+"\n",encoding="utf-8")
 
-def digest(obj):
-    return hashlib.sha256(json.dumps(obj,sort_keys=True,separators=(",",":")).encode()).hexdigest()
-
 def random_case(seed:int):
     r=random.Random(seed)
     groups=r.randint(1,4)
