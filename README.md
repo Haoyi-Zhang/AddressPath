@@ -25,7 +25,9 @@ An older 86-model arithmetic regression suite is retained because every uniform-
 
 ## Reproduction
 
-Requirements: Linux and Python 3.10 or newer. Only the Python standard library is used. The portable route is four resumable invocations against one fresh output directory:
+Requirements: Linux and Python 3.10 or newer. Only the Python standard library is used. Run commands from this artifact root
+with assertions enabled (no `python -O` or `PYTHONOPTIMIZE`). The staged route
+uses one fresh repository-local output directory:
 
 ```bash
 python3 reproduce.py --output reproduction --stage core
@@ -136,18 +138,11 @@ The executable experiments use deterministic conventional Python and make no ext
 Newly authored code, documentation, and synthetic inputs are provided under the included MIT license to the extent applicable rights exist. External papers, publisher assets, and the Python runtime are not redistributed here; their locators and use are recorded in `external_resources.csv`.
 
 
-## Final verification gates
+## Validation gates
 
-The standard reproduction remains split into four bounded stages:
+The four-stage reproduction above includes the following validation gates.
 
-```bash
-python3 reproduce.py --output reproduction --stage core
-python3 reproduce.py --output reproduction --stage tpeg-middle
-python3 reproduce.py --output reproduction --stage tpeg-tail
-python3 reproduce.py --output reproduction --stage validation
-```
-
-The `validation` stage also runs `tools/verify_research_records.py` and `tools/final_code_audit.py`. These checks validate the 21-row claim/evidence ledger, the 36-row external-resource ledger and its exact packaged URL inventory, strict JSON/CSV parsing, absence of network-capable imports and dynamic execution, archive hygiene, and Python syntax. The URL inventory is an offline correspondence check; it does not claim that every endpoint was reachable during the final clean build, and it does not prove the correctness of third-party content.
+The `validation` stage also runs `tools/verify_research_records.py` and `tools/final_code_audit.py`. These checks validate the 21-row claim/evidence ledger, the 35-row external-resource ledger and its exact packaged URL inventory, strict JSON/CSV parsing, absence of network-capable imports and dynamic execution, archive hygiene, and Python syntax. The URL inventory is an offline correspondence check; it does not claim that every endpoint was reachable during the final clean build, and it does not prove the correctness of third-party content.
 
 An additional non-default determinism exercise reran all four stages under `PYTHONHASHSEED=12345`; all JSON/CSV/TeX outputs agreed after removing runtime-only timing and memory fields. Its machine-readable record is `audit/hash-seed-determinism.json`.
 
