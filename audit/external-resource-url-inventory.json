@@ -157,9 +157,9 @@
     },
     {
       "classification": "not_rechecked_offline",
-      "note": "Packaged URL inventory checked for exact correspondence; live reachability was not rerun in the offline clean-build gate.",
-      "resource_id": "Theory of Linear and Integer Programming",
-      "url": "https://www.wiley.com/en-us/Theory+of+Linear+and+Integer+Programming-p-9780471982326"
+      "note": "Author-hosted March23,2017 course text read on2026-10-15, section2.3 theorem2.5 and corollary2.5b with proofs. The packaged gate checks this exact URL against the resource ledger; it does not repeat a live request.",
+      "resource_id": "A Course in Combinatorial Optimization",
+      "url": "https://homepages.cwi.nl/~lex/files/dict.pdf"
     },
     {
       "classification": "not_rechecked_offline",
