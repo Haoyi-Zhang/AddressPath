@@ -28,6 +28,7 @@ jobs:
         run: |
           python -B -m pip install --only-binary=:all: matplotlib==3.11.2
           python -B figures/draw_diagrams.py --check
+          python -B figures/draw_numeric.py --check
       - name: Reproduce owned finite models and regressions
         shell: bash
         run: |

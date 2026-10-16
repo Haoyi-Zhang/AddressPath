@@ -9,7 +9,9 @@ The artifact answers a model-level question: given a finite integer accounting m
 The two manuscript relationship diagrams are direct Matplotlib vector outputs.
 Run `python figures/draw_diagrams.py --check`; set `--output-dir ../paper/figures`
 for a sibling manuscript build. This requires Matplotlib and runs analytic
-example checks, not a new model campaign.
+example checks, not a new model campaign. The two retained numerical plots use
+`figures/draw_numeric.py --check` and the existing `tables/` CSV inputs. Both
+generators embed vector fonts directly and use no TeX text renderer.
 
 The fixed TPEG corpus contains 72 models:
 
