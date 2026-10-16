@@ -6,6 +6,11 @@ The artifact answers a model-level question: given a finite integer accounting m
 
 ## Retained results
 
+The two manuscript relationship diagrams are direct Matplotlib vector outputs.
+Run `python figures/draw_diagrams.py --check`; set `--output-dir ../paper/figures`
+for a sibling manuscript build. This requires Matplotlib and runs analytic
+example checks, not a new model campaign.
+
 The fixed TPEG corpus contains 72 models:
 
 | Decision or method | Count |
