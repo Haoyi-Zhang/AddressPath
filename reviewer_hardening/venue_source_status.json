@@ -37,7 +37,7 @@
     {
       "error": "URLError",
       "http_status": null,
-      "id": "acm_ai_faq",
+      "id": "acm_publications_faq",
       "note": "Live retrieval failed; manual portal verification required",
       "retrieved_at": "2026-09-20",
       "url": "https://www.acm.org/publications/policies/frequently-asked-questions"
