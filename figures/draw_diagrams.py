@@ -85,7 +85,7 @@ def render(out):
         d.box(name,x,y,w,.75,label,size=8.5)
     d.ax.add_patch(Rectangle((12.46,1.835),1.88,.63,fill=False,edgecolor='black',linewidth=.55,zorder=3))
     for a,b in [('s','l'),('s','w'),('l','m'),('w','m'),('m','o'),('o','b')]:d.edge(a,b,'e','w')
-    for x,y,label in [(2.3,3,r'$\rho_1$'),(2.3,1.3,r'$\rho_2$'),(5.3,3,r'$\rho_3$'),(5.3,1.3,r'$\rho_4$'),(8.25,2.5,r'$\rho_5$'),(11.95,2.5,r'$\rho_6$')]:d.text(x,y,label)
+    for x,y,label in [(2.3,3,r'$\rho_1$'),(2.3,1.3,r'$\rho_2$'),(5.3,3,r'$\rho_3$'),(5.5,.95,r'$\rho_4$'),(7.95,2.5,r'$\rho_5$'),(11.95,2.5,r'$\rho_6$')]:d.text(x,y,label)
     d.line([(8.3,.65),(8.3,3.65)],dashed=True)
     d.text(8.3,4.12,'uniform cut\n'+r'$\rho_5=0$',size=8.5)
     d.save(out,'tpeg-overview')
